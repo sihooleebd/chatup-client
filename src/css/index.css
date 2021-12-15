@@ -1,0 +1,1012 @@
+html, body,#root {
+  margin: 0px;
+  height: 100%;
+  padding: 0px;
+}
+
+body {
+  overflow: scroll;
+}
+
+.sign-up.page input[type='submit'], .sign-in.page > form > input[type='button'], .sign-in.page > form > input[type='submit'] {
+  color:black;
+}
+
+
+
+div, a, b{
+
+  font-family: "나눔고딕" , "Nanum Gothic" ,"돋움", dotum, sans-serif;
+}
+
+div::-webkit-scrollbar {
+  display: none;
+}
+
+.sign-in.page, .sign-up.page, .new-room.page, .new-post.page, .edit-profile.page {
+
+  background: url(/src/static/img/background.png) center center no-repeat;
+  background-size:cover;
+}
+
+#root {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+a:link, a:hover, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+div.page-not-found a {
+  color: #09ADAC;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li { 
+  list-style: none;
+}
+
+/*페이지 수준의 설정 */
+
+div.page.with-title {
+  margin-top: 44px;
+}
+
+div.page > div.title > div.nav-button-wrapper {
+  position: absolute;
+  top: 0;
+  height : 44px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+div.page > div.title > div.nav-button-wrapper.left {
+  left: 0;
+  right: auto;
+  flex-direction: row;
+}
+
+div.page > div.title > div.nav-button-wrapper.right {
+  left: auto;
+  right: 0;
+  flex-direction: row-reverse;
+}
+
+input[type=button]#menu {
+  background: url(/src/static/img/menu-icon.png) center center no-repeat;
+  background-size: 40px 40px;
+  font-size: 0;
+  width: 40px;
+  height: 40px;
+  opacity: 0.7;
+}
+
+div.page > div.title .nav-button {
+    background: none;
+    margin: 0 5px;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+
+div.page > div.title {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 44px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  vertical-align: middle;
+  line-height: 44px;
+  text-align: center;
+  font-size: 20px;
+  z-index: 1000;
+  margin: 0;
+}
+
+
+
+div.posts > ul {
+  margin:0;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+
+div.posts > ul > li {
+  /* border: 2px solid red; */
+  margin-top: 12px;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  cursor: pointer;
+  border: 1px solid rgba(208, 208, 208, 0.3);
+  
+}
+
+div.posts > ul > li:first-child {
+  margin-top : 0px;
+}
+
+
+div.posts > ul > li > div.content {
+  margin-top: 8px;
+}
+
+
+div.posts > ul > li > div.title {
+  font-size: 28px;
+  margin-top: 8px
+  /* font-weight: bold; */
+}
+
+
+/* post */
+
+div.post {
+  padding: 20px;
+  padding-bottom: 68px;
+}
+
+div.post div.content {
+  margin-top: 8px;
+}
+
+
+div.post div.title {
+  font-size: 28px;
+  /* font-weight: bold; */
+}
+
+/* comments */
+
+
+div.post > div.comments-wrapper {
+  border-top: 1px solid #ddd;
+  margin-top: 12px;
+}
+
+div.post > div.comments-wrapper > ul > li {
+  margin-top: 8px;
+}
+
+div.post form#new-comment-form {
+  position: fixed;
+  bottom:0px;
+  left: 0;
+  right:0;
+  background:white;
+  padding:10px;
+}
+
+div.post > div.comments-wrapper > form#new-comment-form > input#new-comment {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  border-radius: 30px;
+  outline: none;
+  height: 40px;
+  margin-top: 8px;
+  padding-left: 10px;
+}
+
+
+
+/* sign in */
+
+div.sign-in {
+  background: rgba(256, 256, 256, 0.6);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+div.sign-in > form {
+  height: 450px;
+  width: 320px;
+  text-align: center;
+  border-radius: 24px;
+  background: rgba(256, 256, 256, 0.6);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+div.sign-in > form > div.guide {
+  margin: 0 auto 20px;
+  width: 200px;
+  padding-top: 150px;
+  background: url(/src/static/img/logo.png) center top no-repeat;
+  background-size: contain;
+  line-height: 24px;
+}
+
+div.sign-in > form > div.guide > b {
+  font-size: 20px;
+}
+
+div.sign-in > form input[type=text], div.sign-in > form input[type=password] {
+  border: 1px solid #555;
+  margin: 12px;
+  height: 30px;
+  border-radius: 30px;
+  width: 200px;
+  padding-left: 35px;
+  outline: none;
+}
+
+div.sign-in > form input[type=text] {
+  background: url(/src/static/img/email-icon.png) 10px center no-repeat;
+  background-size: 24px 24px;
+}
+
+div.sign-in > form input[type=password] {
+  background: url(/src/static/img/password-icon.png) 10px center no-repeat;
+  background-size: 24px 24px;
+}
+
+
+div.sign-in > form input[type=button],div.sign-in > form input[type=submit] {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  height: 30px;
+  background-color: rgba(256,256,256,0);
+  border-radius: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #555555;
+  
+}
+
+
+
+
+
+
+
+
+
+div.sign-up {
+  background: rgba(256);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+div.sign-up > form {
+  height: 500px;
+  width: 320px;
+  text-align: center;
+  border-radius: 24px;
+  background: rgba(256, 256, 256, 0.6);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+div.sign-up > form > div.guide {
+  margin: 0 auto 20px;
+  width: 200px;
+  padding-top: 150px;
+  background: url(/src/static/img/logo.png) center top no-repeat;
+  background-size: contain;
+  line-height: 24px;
+}
+
+div.sign-up > form > div.guide > b {
+  font-size: 20px;
+}
+
+div.sign-up > form input[type=text], div.sign-up > form input[type=password] {
+  border: 1px solid #555;
+  margin: 12px;
+  height: 30px;
+  border-radius: 30px;
+  width: 200px;
+  padding-left: 35px;
+  outline: none;
+}
+
+div.sign-up > form input[type=text]#email {
+  background: url(/src/static/img/email-icon.png) 10px center no-repeat;
+  background-size: 24px 24px;
+}
+
+div.sign-up > form input[type=text]#nickname {
+  background: url(/src/static/img/nickname-icon.png) 10px center no-repeat;
+  background-size: 24px 24px;
+}
+
+
+div.sign-up > form input[type=password] {
+  background: url(/src/static/img/password-icon.png) 10px center no-repeat;
+  background-size: 24px 24px;
+}
+
+
+div.sign-up > form input[type=submit] {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  height: 30px;
+  background-color: rgba(256,256,256,0);
+  border-radius: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #555555;
+}
+
+
+
+
+
+
+
+div.new-post {
+  background: #FFFFFF;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+div.new-post > form {
+  height: 450px;
+  width: 320px;
+  text-align: center;
+  border-radius: 24px;
+  background: rgba(256, 256, 256, 0.6);
+
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+div.new-post > form > div.guide {
+  margin: 0 auto 20px;
+  width: 200px;
+  padding-top: 150px;
+  background: url(/src/static/img/logo.png) center top no-repeat;
+  background-size: contain;
+  line-height: 24px;
+}
+
+div.new-post > form > div.guide > b {
+  font-size: 20px;
+}
+
+div.new-post > form input[type=text], textarea  {
+  border: 1px solid #555;
+  margin: 10px;
+  height: 30px;
+  border-radius: 30px;
+  width: 200px;
+  padding: 10px;
+  outline: none;
+  box-sizing: border-box;
+  background:none;
+}
+
+input[type=text], textarea {
+  text-transform: lowercase;
+}
+
+textarea {
+  resize: none;
+  height: 60px;
+  background:none;
+}
+
+
+
+div.new-post > form input[type=submit] {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  height: 30px;
+  background-color: rgba(256,256,256,0);
+  border-radius: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #555555;
+}
+
+b{
+  color: #09ADAC;
+}
+
+
+
+
+
+
+div.edit-profile {
+  background: rgba(256, 256, 256, 0.6);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+div.edit-profile > form {
+  height: 450px;
+  width: 320px;
+  text-align: center;
+  border-radius: 24px;
+  background: rgba(256, 256, 256, 0.6);
+
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  
+}
+
+div.edit-profile > form > div.guide {
+  margin: 0 auto 20px;
+  width: 200px;
+  padding-top: 150px;
+  background: url(/src/static/img/logo.png) center top no-repeat;
+  background-size: contain;
+  line-height: 24px;
+}
+
+div.edit-profile > form > div.guide > b {
+  font-size: 20px;
+}
+
+div.edit-profile > form > .photo-wrapper > input[type='file'] {
+  display: none;
+}
+
+div.edit-profile > form > .photo-wrapper {
+  position: relative;
+  height: 120px;
+  width: 120px;
+  margin: auto;
+}
+
+div.edit-profile > form > .photo-wrapper > #fake-button {
+  height:35px;
+  width: 35px;
+  border: none;
+  /* border: 1px solid #555555; */
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAACu0lEQVR4AezWAUdrYRzH8dtxQtyGIhgIE0MQBoEAJRAFEFhvIAwBKGA0dl5CYEAFvYegCgRUlixiyKHpd78I93I7W53zPBvP/8sHgOP8Hvx/WZZlWZZlWZZljbl9yLF9/CdrFx+QYx/YxV9Zm3iHPHnHJixaxRvk2RtWEXTLeIXG5BXLCLJFdKEx62IRQbWAO2hC3GEBQVTCJTRhLlHCxFdFE7foQ448o4K8VfAMOdLHLZqowlnTaGEAOdbHCopqBX3IsQFamHbx8y8gD1KsoejWkEIeXBQ9wjHkwQBbcNUWBpAHxyikqsePrsN1dY+PqYrcNSEPDuCrA8iDJnJ3AznWgu9akGM3yF0fcugEEXwX4QRyqI/cKZOlbDaADeAyG8AKYoAp1NBAB1foQp+6uEIHDdQwZQPkr4wjPEDf9IAjlG2A7zeHNlIopxRtzNkAo7WNF6hgL9i2Ab4uRgI5liC2Af5tBqeQJ6eYAdkAMc4gz84QI/gBEmhMktAH2PnBaZlgAxX8/lTBBpIfnKw7oQ4wjx40gifUEWNYMep4gkbQw3yIA7ShEZyjhO9Wwjk0gnZoA5SRQkMkiPDTIiTQECnKIQ1wOOLLj5C3COfQEIehDBDhHsrQRQlFVUIXynCPKIQBatAQeyi6PWiIWggDNKAMj4hRdDEeoQyNEAboOLxI8l5enRAGuIYyrMNV61CG6xAG6EEZluCqJShDL4QBUijDLFw1C2VI8aed+zABAISBKLo/RXA3J3EC6dkgh+F9uAkOLCnHAAY4glzCLmHPUB8xHzGlCMU4xTjlaA0ZDRktSU15TXljKQMNMJhlNJEBhnONpzPAgoYVJQZY0rOmyoAmGMAABjCAAQ2BTXSzkWV0sqF9tHKxlVSxlZHgVtq56GKq6OLO8G6q8O5AfP0HCsTXAwAAAAAAAAAAPPG1Gth1rbHGAAAAAElFTkSuQmCC') center center no-repeat;
+  background-size: contain;
+  font-size: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+
+
+
+div.edit-profile > form > .photo-wrapper > div.profile-viewer {
+  width: 120px;
+  height : 120px;
+  border-radius : 50%;
+  display:inline-block;
+  background : #ddd;
+  background-image: url(/src/static/img/favicon.png);
+  background-size: cover;
+  background-position: center center;
+  border:0 none;
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+div.edit-profile > form > input[type=text] {
+  border: 1px solid #555;
+  margin: 12px;
+  height: 30px;
+  border-radius: 30px;
+  width: 200px;
+  outline: none;
+  text-align: center;
+  background:none;
+}
+
+
+div.page-not-found  {
+  background: #FFFFFF;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(/src/static/img/background.png) center center no-repeat;
+  background-size: cover;
+}
+
+div.page-not-found  > form {
+  margin-left: 30px;
+  height: 450px;
+  width: 320px;
+  text-align: center;
+  border-radius: 24px;
+  background: rgba(256, 256, 256, 0.6);
+
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+div.page-not-found > form > div.guide {
+  margin: 0 auto 20px;
+  width: 200px;
+  padding-top: 200px;
+  margin-top:30px;
+  background: url(/src/static/img/404.png) center top no-repeat;
+  background-size: contain;
+  line-height: 24px;
+}
+
+div.page-not-found > form > div.guide > b {
+  font-size: 20px;
+}
+
+div.page-not-found > form > div.guide > h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+}
+
+/* post medatata wapper */
+
+div.post-metadata-wrapper {
+  /* border: 1px solid #f00; */
+  height: 44px;
+  position: relative;
+  z-index: 1;
+}
+
+div.post-metadata-wrapper > div.dummy-profile {
+  position : absolute;
+  left: 0;
+  top: 0;
+  width: 44px;
+  height : 44px;
+  border-radius : 22px;
+  background : #ddd;
+  background-size: contain;
+}
+
+
+div.post-metadata-wrapper > div.profile {
+  position : absolute;
+  left: 0;
+  top: 0;
+  width: 44px;
+  height : 44px;
+  border-radius : 22px;
+  background : #ddd;
+  background-size: contain;
+}
+
+div.post-metadata-wrapper > div.profile > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+}
+
+div.post-metadata-wrapper > div.writer {
+  position : absolute;
+  left: 52px;
+  top: 0;
+  width: calc(100% - 52px);
+  color: #666;
+  font-size: 24px;
+}
+
+div.post-metadata-wrapper > div.time {
+  position : absolute;
+  left: 52px;
+  top: 24px;
+  width: calc(100% - 52px);
+  color: #666;
+  font-size: 20;
+}
+
+
+/* menu related css */
+
+div.menu-wrapper {
+  position:fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0);
+  transition-duration: 500ms;
+  z-index: 1999;
+  display:none;
+  cursor:pointer;
+}
+
+div.menu-wrapper.open {
+  display:block;
+  background: rgba(0,0,0,0.4);
+  z-index: 1999;
+}
+
+div.menu {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 320px;
+  height: 100%;
+  background: #ddd;
+  z-index: 2000;
+  transition-duration: 500ms;
+ 
+}
+
+
+div.menu-wrapper.open .menu {
+  left: 0;
+}
+
+div.menu > div.profile-wrapper {
+  padding: 20px;
+  text-align: center;
+}
+
+div.menu > div.profile-wrapper > div.nickname-wrapper {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+div.menu > div.profile-wrapper > div.profile-img {
+  width: 80px;
+  height : 80px;
+  border-radius : 50%;
+  display:inline-block;
+  background : #ddd;
+  background-size: cover;
+  background-position: center center;
+  border:0px none;
+  margin-bottom: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+div.menu > div.profile-wrapper > div.profile-img > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+div.menu > input[type=button] {
+  border: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url(/src/static/img/menu-cancel-icon.png) center center no-repeat;
+  background-size: 40px 40px;
+  font-size: 0;
+  opacity: 0.7;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+div.page.with-title > div.title > img {
+  width: 100px;
+}
+
+div.menu > ul > li > a {
+  border: 1px solid rgba(0,0,0,0.1);
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px;
+  background:#EEE;
+  border-radius: 100px;
+  width: 150px;
+  text-align: center;
+  transition-duration: 200ms;
+}
+
+div.menu > ul > li > a:hover {
+  background: #CCC;
+}
+
+div.menu > ul {
+  text-align: center;
+}
+
+#write-new-post, #create-new-room {
+  font-size: 0;
+  background: url(/src/static/img/new-post-icon.png) center center no-repeat;
+  background-size: 30px 30px;
+  border: 0;
+  height: 30px;
+  width: 30px;
+  opacity: 0.7;
+}
+
+/* 상세보기 관련 css */
+
+/* comments related css */
+
+ div.post > div.comments-wrapper > ul > li{
+  margin-left:20px;
+  margin-top:20px;
+}
+
+
+div.post > div.comments-wrapper > ul > li > div.content{
+  word-break: break-all;
+}
+div.post > div.comments-wrapper > ul > li > div.comment-metadata-wrapper {
+  position:relative;
+  height:30px;
+  overflow: hidden;
+  padding-left:35px;
+  padding-top:6px;
+}
+
+div.post > div.comments-wrapper > ul > li > div.comment-metadata-wrapper > span {
+  padding-right:10px;
+}
+
+div.post > div.comments-wrapper > ul > li > div.comment-metadata-wrapper > div.time {
+  position: absolute;
+  right:0;
+  top:6px;
+}
+
+div.post > div.comments-wrapper > ul > li > div.comment-metadata-wrapper > div.profile {
+  position:absolute;
+  left: 0;
+  top: 0;
+  display:inline-block;
+  width: 30px;
+  height : 30px;
+  border-radius : 22px;
+  background : #ddd;
+  background-size: contain;
+  
+}
+
+div.post > div.comments-wrapper > ul > li > div.comment-metadata-wrapper > div.profile > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.rooms > ul > li {
+  margin-top: 12px;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding-left: 35px;
+  cursor:pointer;
+}
+
+.rooms > ul {
+  margin:0;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top:10px;
+}
+
+div.rooms > ul > li > div.room-metadata-wrapper div {
+  display:inline-block;
+  font-size:12px;
+  margin-right:10px;
+}
+
+#submit-new-room, #submit-profile {
+  background: url(/src/static/img/done-icon.png) center center no-repeat;
+  background-size: 40px 40px;
+  font-size: 0;
+  width: 40px;
+  height: 40px;
+  opacity: 0.7;
+}
+
+
+/* chats */
+
+.chat.page {
+  height: calc(100% - 44px);
+}
+
+.message-wrapper {
+  padding: 0px 10px;
+  height: calc(100% - 44px);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.message-wrapper .message {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 10px;
+  transition: transform 500ms ease;
+  transform-origin: top;
+  transform: scaleY(1) translatey(0px);
+  word-break: break-all;
+}
+
+.message-wrapper .message.hidden {
+  transform: scaleY(1) translatey(40px);
+}
+
+.message-wrapper .message .profile {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: url(/src/static/img/dummy-profile-pic.png);
+  background-size: contain;
+
+}
+
+.message-wrapper .message .profile img {
+  display: none;
+}
+
+.message-wrapper .message .writer {
+  font-size: 10px;
+  color: #888;
+
+}
+
+.message-wrapper .message .content-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.message-wrapper .message .content-wrapper .content, .message-wrapper .message .content-wrapper .time {
+  display: inline-block;
+}
+
+.message-wrapper .message .content-wrapper .content {
+  max-width: 80%;
+  background-color: #ddd;
+  border-radius: 0px 15px 15px 15px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.message-wrapper .message .content-wrapper .time {
+  font-size: 8px;
+  color:#888;
+}
+
+
+/* MINE */
+.message-wrapper .message.me .profile {
+  display: none;
+}
+
+.message-wrapper .message.me {
+  text-align: right;
+}
+.message-wrapper .message.me .content-wrapper {
+  vertical-align: bottom;
+  overflow: hidden;
+  flex-direction: row-reverse;
+}
+.message-wrapper .message.me .content-wrapper .content {
+  border-radius: 15px 0px 15px 15px;
+  background-color: #09ADAC;
+}
+
+#new-message {
+  border: 0.1px solid #09ADAC;
+  border-radius: 5px;
+  padding-left: 10px;
+  width: 80%;
+  height: 30px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#new-message-send {
+  width: 15%;
+  background-color: #09ADAC;
+  border: none;
+  height: 30px;
+  border-radius: 5px;
+  padding: 0;
+}
+
+#new-message-form {
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 60px;
+}
+
+div.new-message-wrapper {
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 7px;
+  width: 95%;
+  margin: auto;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+
+div.menu > div.profile-wrapper > div > a {
+  border: 1px solid rgba(0,0,0,0.1);
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 100px;
+  text-align: center;
+  width:130px;
+}
+
+div.menu > div.profile-wrapper > div > a:hover {
+  background: #ccc;
+}
+
+
+img { 
+  -webkit-user-drag: none; 
+  -khtml-user-drag: none; 
+  -moz-user-drag: none; 
+  -o-user-drag: none; 
+  user-drag: none; 
+}
+
+input:focus { 
+  outline: none !important;
+}
+textarea:focus { 
+  outline: none !important;
+}
+
+.main-header {
+  font-size: 30px;
+  color: #09ADAC;
+  padding-left: 30px;
+  padding-top: 15px;
+}
+
+#btn-goto-signup {
+  border:none;
+  color:grey;
+  text-decoration: underline;
+  
+}
+
+a, li, input[type='button'], input[type='submit'] {
+  cursor:pointer;
+}
+
+input[type='text'], textarea {
+  autocomplete: off;
+}
+
+
+div.new-post > form > input[type='submit'] {
+  width: 50px;
+  color: #000;
+  padding: 5px;
+}
