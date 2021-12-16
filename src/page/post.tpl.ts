@@ -27,7 +27,7 @@ const commentLiTemplate = `
 const template = `
   <div class='post page with-title'>
     <div class='title'>
-      <img src='/dist-static/logo.png'>
+      <img src='/src/static/img/logo-with-background.png'>
       <div class='nav-button-wrapper left'>
         <input type='button' class='nav-button' id='menu' value='menu'>
       </div>
