@@ -36,7 +36,7 @@ export default class SignUp {
     //여기까지 오면 자료 있음
 
     axios
-      .post(`http://${constant.HOST}:8080/api/signUp`, userInfo)
+      .post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/signUp`, userInfo)
       .then((result) => {
         console.log(result);
         if (result.data.isSuccess) {
