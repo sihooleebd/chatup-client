@@ -1,7 +1,7 @@
 const template = `
   <div class='edit-profile page with-title'>
     <div class='title'>
-      <img src='/dist-static/logo.png'>
+      <img src='/src/static/img/logo-with-background.png'>
       <div class='nav-button-wrapper right'>
         <input type='button' class='nav-button' id='submit-new-room' value='done'>
       </div>
