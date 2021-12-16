@@ -44,7 +44,7 @@ export default class NewPost {
     //여기까지 오면 자료 있음
 
     axios
-      .post(`http://${constant.HOST}:8080/api/posts`, postInfo, {withCredentials: true})
+      .post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/posts`, postInfo, {withCredentials: true})
       .then((result) => {
         console.log(result);
         if (result.data.isSuccess) {
