@@ -18,7 +18,7 @@ const postsTemplate  = `
 const template = `
   <div class='posts page with-title'>
     <div class='title'>
-      <img src='/src/static/img/logo-with-background.png'>
+      <img src='/dist-static/logo.png'>
       <div class='nav-button-wrapper right'>
         <input type='button' class='nav-button' id='write-new-post' value='write!'>
       </div>
