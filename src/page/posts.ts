@@ -28,7 +28,7 @@ export default class Posts {
       console.log(postList.length);
       if(postList.length === 0) {
         console.log('aaa');
-        return postsTemplate.replace(`{{posts}}`, `<img src='/src/static/img/room-intro.png'>`);
+        return postsTemplate.replace(`{{posts}}`, `<img src='/dist-static/room-intro.png'>`);
       }
       return postsTemplate.replace('{{posts}}',
         postList.reduce((a,c) => (
@@ -38,7 +38,7 @@ export default class Posts {
         .replace('{{content}}', (c.content as string).replace(/(?:\r\n|\r|\n)/g, '<br>'))
         .replace('{{writerNickname}}', c.writerNickname)
         .replace('{{writtenAt}}', Time.getReadableTime(c.writtenAt))
-        .replace('{{profileImg}}', (c.profileImg === null) ? '/src/static/img/favicon.png' : '/storage/profile/' + c.profileImg)
+        .replace('{{profileImg}}', (c.profileImg === null) ? '/dist-static/favicon.png' : '/storage/profile/' + c.profileImg)
       ), ''));
       
     } catch (e) {
