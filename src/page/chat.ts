@@ -2,9 +2,7 @@ import axios from "axios";
 import Time from "../utils/time";
 import template, { messageTemplate} from './chat.tpl'
 import Menu from "./menu";
-import e from "cors";
 import HTMLDom from "../utils/htmldom";
-import Url from "../utils/url";
 import io, { Socket } from 'socket.io-client';
 import DifferedPromise from "./differed-promise";
 import Profile, { UserProfile } from "../utils/profile";

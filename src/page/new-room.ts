@@ -1,10 +1,7 @@
 import axios from "axios";
-import Profile from "../utils/profile";
-import Url from "../utils/url";
 import template from "./new-room.tpl";
 import Menu from "./menu";
 import * as constant from '../config/constant.json';
-import { messageTemplate } from "./chat.tpl";
 
 
 export default class NewRoom {
