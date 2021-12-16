@@ -1,5 +1,4 @@
 import template from "./menu.tpl";
-import axios from 'axios';
 import Url from "../utils/url";
 import Profile from "../utils/profile";
 
