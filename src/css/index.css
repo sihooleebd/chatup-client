@@ -401,10 +401,6 @@ div.new-post > form input[type=text], textarea  {
   background:none;
 }
 
-input[type=text], textarea {
-  text-transform: lowercase;
-}
-
 textarea {
   resize: none;
   height: 60px;
