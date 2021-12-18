@@ -6,6 +6,7 @@ import HTMLDom from "../utils/htmldom";
 import Url from "../utils/url";
 import Profile from "../utils/profile";
 import * as constant from '../config/constant.json';
+import HTMLHelper from "../utils/html";
 
 
 export default class Post {
@@ -75,14 +76,12 @@ export default class Post {
       alert('Please enter your comment!')
     }
 
-    //여기까지 오면 자료 있음
-
     axios
       .post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}/comments`,{ content }, {withCredentials: true})
       .then((result) => {
         console.log(result);
         if (result.data.isSuccess) {
-          this.appendNewComment(content);
+          this.appendNewComment(HTMLHelper.escape(content));
         } else {
           console.log("SUSSS");
           alert(result.data.message);
