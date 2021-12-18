@@ -128,6 +128,9 @@ export default class EditProfile {
 
   }
 
+
+
+  
   render = () => {
     this.container.innerHTML = this.template; 
     Profile.retrieveProfile(true, undefined).then((myProfile) => {
