@@ -117,7 +117,7 @@ export default class Chat {
 
     this.socket.on("connect", () => {
       window.store.connectedSockets.push(this.socket);
-
+      console.log("CONNECTED!!!!!!");
       console.log(this.socket.id); // x8WIv7-mJelg7on_ALbx
       // server에 roomId 를 알려줘야 함
       console.log('my id', this.me.id);
