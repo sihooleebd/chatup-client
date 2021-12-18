@@ -90,7 +90,7 @@ export default class Chat {
 
   async getChatRoomInfo(): Promise<number> {
     const url = `http://${constant.HOST}:${constant.SERVER_PORT}/api/chatrooms?counterpartUserId=${this.counterpart.id}`;
-
+    console.log(this.counterpart.id,"<-- COUNTERPART ID");
     const result = await axios.get(url, {withCredentials: true});
     if(result.data.isSuccess) {
       return result.data.objects[0].roomId;
