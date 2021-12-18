@@ -7,6 +7,7 @@ import io, { Socket } from 'socket.io-client';
 import DifferedPromise from "./differed-promise";
 import Profile, { UserProfile } from "../utils/profile";
 import * as constant from '../config/constant.json';
+import HTMLHelper from "../utils/html";
 
 export default class Chat {
   template: string = template;
@@ -140,7 +141,7 @@ export default class Chat {
     const timeStr = (new Date).toString();
     console.log("msgTemplate",messageTemplate);
     const msgStr = messageTemplate    
-      .replace('{{content}}', content)
+      .replace('{{content}}', HTMLHelper.escape(content))
       .replace('{{sentAt}}', Time.getReadableTime(timeStr))
       .replace('{{senderNickname}}', sender.nickname);
     const msgElem = HTMLDom.htmlToElement(msgStr) as HTMLElement;
