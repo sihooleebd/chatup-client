@@ -147,7 +147,7 @@ export default class Chat {
       .replace('{{sentAt}}', Time.getReadableTime(timeStr))
       .replace('{{senderNickname}}', sender.nickname);
     const msgElem = HTMLDom.htmlToElement(msgStr) as HTMLElement;
-
+    console.log(HTMLHelper.escape(content));
     if(isMe) {
       msgElem.classList.add('me');
     }
