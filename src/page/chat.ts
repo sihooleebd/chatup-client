@@ -144,14 +144,15 @@ export default class Chat {
     const msgStr = messageTemplate    
       .replace('{{content}}', HTMLHelper.escape(content))
       .replace('{{sentAt}}', Time.getReadableTime(timeStr))
-      .replace('{{senderNickname}}', sender.nickname);
-    const msgElem = HTMLDom.htmlToElement(msgStr) as HTMLElement;
+      .replace('{{senderNickname}}', sender.nickname)
+      .replace('{{profileImg}}', (sender.profileImg === null) ? '/dist-static/favicon.png' : '/storage/profile/' + sender.profileImg);
     console.log(HTMLHelper.escape(content));
+    let msgElem = HTMLDom.htmlToElement(msgStr) as HTMLElement;
+    
     if(isMe) {
       msgElem.classList.add('me');
     }
     msgElem.classList.add('hidden');
-    
     const parentElem = document.querySelector('.message-wrapper') as HTMLElement;
     parentElem.prepend(msgElem);
     // parentElem.scrollTop = parentElem.scrollHeight;
