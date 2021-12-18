@@ -33,7 +33,6 @@ export default class Chat {
         this.counterpart = values[1];
         this.roomId = values[2];
 
-
         console.log('counterpart',this.counterpart);
         console.log('me',this.me);
 
@@ -90,7 +89,6 @@ export default class Chat {
 
   async getChatRoomInfo(): Promise<number> {
     const url = `http://${constant.HOST}:${constant.SERVER_PORT}/api/chatrooms?counterpartUserId=${this.counterpart.id}`;
-    console.log(this.counterpart.id,"<-- COUNTERPART ID");
     const result = await axios.get(url, {withCredentials: true});
     if(result.data.isSuccess) {
       return result.data.objects[0].roomId;
@@ -135,6 +133,7 @@ export default class Chat {
 
 
   appendNewMsg = (content: string, sender: UserProfile, isMe:boolean) => {
+    console.log("S E N D E R ", sender);
     if(content === '') {
       console.log('empty msg');
       return;
