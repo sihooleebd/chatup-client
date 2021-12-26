@@ -129,6 +129,9 @@ export default class Chat {
       console.log('onchatmsg',messageObj);
       this.appendNewMsg(messageObj.message, this.counterpart, false)
     })
+    this.socket.on('new event', (messageObj) => {
+      console.log('new event', messageObj);
+    })
   } 
 
 
