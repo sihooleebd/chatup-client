@@ -174,8 +174,9 @@ export default class Chat {
     buttonSend.style.backgroundColor = 'rgba(09,173, 172, 0.5)';
     buttonSend.style.opacity = '0.5';
     document.querySelector('#new-message-form').removeEventListener('submit', this.addChatItem);
-
+    console.log("BEFORE EMIT");
     this.socket.emit('chatMessage', content);
+    console.log("AFTER EMIT");
     console.log('c');
     this.appendNewMsg(content, this.me, true);
   }
