@@ -57,6 +57,8 @@ function route() {
       const pageNotFound = new PageNotFound("#root");
       pageNotFound.render();
   }
+
+  
 }
 console.log('start');
 Profile.retrieveProfile(true, undefined, true);
