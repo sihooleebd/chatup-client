@@ -1044,6 +1044,7 @@ div.chats > ul {
   margin:0;
   box-sizing: border-box;
   padding: 20px;
+  align-item: center;
 }
 
 div.chats > ul > li > .chat-metadata-wrapper > .profile > img {
