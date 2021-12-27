@@ -61,18 +61,26 @@ export default class Chats {
 
 
   onChatClick(e: Event) {
-    console.log('triggered!!!!');
     const elem = e.target as HTMLElement;
-    console.log('elem', elem);
-    const chatId = elem.parentElement.dataset.counterpartId;
-    console.log('dataset', elem.parentElement.dataset);
-    console.log('chatId', chatId);
-    if(!chatId) {
+    const parent = elem.parentElement;
+
+    const userIdStr = parent.dataset.counterId;
+    if(!userIdStr || userIdStr === '0') {
       return;
     }
-    self.location.href = `#/chat/${chatId}`;
 
-
+    const userId = parseInt(userIdStr);
+    if(!userId) {
+      return;
+    }
+    const promise = Profile.retrieveProfile(true, undefined);
+    promise.then(myProfile => {
+      if(myProfile.id === userId) {
+        return;
+      }
+      self.location.href = `#/chat/${userId}`;
+      
+    });
   }
 
   render = () => {
@@ -81,7 +89,7 @@ export default class Chats {
       this.container.innerHTML = this.template.replace("{{chatsList}}", s);
       Menu.attach();
       console.log(document.querySelector('ul.posts'));
-      document.querySelector('ul.chats').addEventListener('click', this.onChatClick);
+      document.querySelector('div.chat-metadata-wrapper').addEventListener('click', this.onChatClick);
     });
   };
 }
