@@ -61,6 +61,7 @@ function route() {
 
     const tmp = JSON.parse(jsonStr);
     const chatList = new Chats('#root', tmp.id);
+    console.log('parsed', tmp);
     chatList.render();
   } else {
       const pageNotFound = new PageNotFound("#root");
