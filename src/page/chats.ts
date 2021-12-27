@@ -16,7 +16,7 @@ export default class Chats {
 
   async getChats(): Promise<string> {
     try {
-      const result = await axios.get(`http://${constant.HOST}:${constant.SERVER_PORT}/api/chats?userId=${this.userId}`, {
+      const result = await axios.get(`http://${constant.HOST}:${constant.SERVER_PORT}/api/chats/${this.userId}`, {
         withCredentials: true,
       });
       const chatsList = result.data.objects;
