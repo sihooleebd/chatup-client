@@ -65,7 +65,7 @@ export default class Chats {
     const elem = e.target as HTMLElement;
     const parent = elem.parentElement;
 
-    const userIdStr = parent.dataset.counterId;
+    const userIdStr = parent.dataset.counterpartId;
     if(!userIdStr || userIdStr === '0') {
       return;
     }
