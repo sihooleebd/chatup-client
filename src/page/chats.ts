@@ -39,7 +39,7 @@ export default class Chats {
         }
         finalStr = finalStr + tmp;
       }
-      return template.replace('{{chatsList}}', finalStr);
+      return finalStr;
     } catch (e) {
       if(e instanceof SyntaxError) {
         return "server error";
