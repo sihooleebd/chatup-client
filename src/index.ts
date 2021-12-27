@@ -52,6 +52,7 @@ function route() {
     newRoom.render();
   } else if(/(#)(\/chatList\/)(\d+)/.test(path)) {
     const chatList = new Chats('#root', window.localStorage.getItem('profile').nickname);
+    chatList.render();
   } else {
       const pageNotFound = new PageNotFound("#root");
       pageNotFound.render();
