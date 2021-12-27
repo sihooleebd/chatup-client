@@ -158,7 +158,7 @@ export default class Chat {
     msgElem.classList.add('hidden');
     const parentElem = document.querySelector('.message-wrapper') as HTMLElement;
     parentElem.prepend(msgElem);
-    // parentElem.scrollTop = parentElem.scrollHeight;
+    parentElem.scrollTop = parentElem.scrollHeight;
     setTimeout(() => {
       msgElem.classList.remove('hidden');
     }, 0);
