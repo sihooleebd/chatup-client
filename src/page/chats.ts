@@ -3,6 +3,7 @@ import Time from "../utils/time";
 import template, { chatsTemplate, chatTemplate } from './chats.tpl'
 import Menu from "./menu";
 import * as constant from '../config/constant.json';
+import Profile from "../utils/profile";
 
 export default class Chats {
   template: string = template;
