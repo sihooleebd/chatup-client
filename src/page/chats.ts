@@ -21,6 +21,7 @@ export default class Chats {
         withCredentials: true,
       });
       const chatsList = result.data.objects;
+      console.log('chatsList', chatsList);
       console.log(chatsList.length);
       if(this.userId==result.data.objects[0].userFirstId) {
         return chatsTemplate.replace('{{posts}}',
@@ -57,6 +58,8 @@ export default class Chats {
       return;
     }
     self.location.href = `#/chat/${chatId}`;
+
+
   }
 
   render = () => {
