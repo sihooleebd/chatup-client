@@ -21,7 +21,6 @@ export default class Chats {
       });
       const chatsList = result.data.objects;
       console.log(chatsList.length);
-      const iAmFirst: boolean = false;
       if(this.userId==result.data.objects[0].userFirstId) {
         return chatsTemplate.replace('{{posts}}',
         chatsList.reduce((a,c) => (
