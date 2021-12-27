@@ -61,6 +61,7 @@ export default class Chats {
 
 
   onChatClick(e: Event) {
+    console.log('triggered!!!!');
     const elem = e.target as HTMLElement;
     const chatId = elem.parentElement.dataset.counterpartId;
     if(!chatId) {
