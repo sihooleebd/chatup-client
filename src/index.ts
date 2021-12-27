@@ -9,6 +9,8 @@ import EditProfile from "./page/edit-profile";
 import Profile from "./utils/profile";
 import Chat from "./page/chat";
 import NewRoom from "./page/new-room";
+import { chatsTemplate } from "./page/chats.tpl";
+import Chats from "./page/chats";
 
 function route() {
   const path = location.hash;
@@ -48,6 +50,8 @@ function route() {
   } else if (path==='#/newRoom') {
     const newRoom = new NewRoom('#root');
     newRoom.render();
+  } else if(/(#)(\/chatList\/)(\d+)/.test(path)) {
+    const chatList = new Chats('#root', window.localStorage.getItem('profile').nickname);
   } else {
       const pageNotFound = new PageNotFound("#root");
       pageNotFound.render();
