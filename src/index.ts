@@ -56,8 +56,10 @@ function route() {
 
   } else if(/(#)(\/chatList\/)(\d+)/.test(path)) {
     console.log('Passed Regex for chatlist');
-    console.log('localstorage', window.localStorage.getItem('profile') as Element)
-    const tmp = window.localStorage.getItem('profile') as Element;
+    console.log('localstorage', window.localStorage.getItem('profile'));
+    const jsonStr = window.localStorage.getItem('profile');
+
+    const tmp = JSON.parse(jsonStr);
     const chatList = new Chats('#root', tmp.id);
     chatList.render();
   } else {
