@@ -23,21 +23,23 @@ export default class Chats {
       const chatsList = result.data.objects;
       console.log('chatsList', chatsList);
       console.log(chatsList.length);
-      if(this.userId==result.data.objects[0].userFirstId) {
-        return chatsTemplate.replace('{{posts}}',
-        chatsList.reduce((a,c) => (
-        a + chatTemplate
-        .replace('{{counterpartId}}', c.userSecondId)
-        .replace('{{counterNickname}}', c.userSecondNickname)
-        .replace('{{profileImg}}', (c.userSecondProfileImage === null) ? '/dist-static/favicon.png' : '/storage/profile/' + c.userSecondProfileImage)), ''));      
-      } else {
-        return chatsTemplate.replace('{{posts}}',
-          chatsList.reduce((a,c) => (
-          a + chatTemplate
-          .replace('{{counterpartId}}', c.userFirstId)
-          .replace('{{counterNickname}}', c.userFirstNickname)
-          .replace('{{profileImg}}', (c.userFirstProfileImage === null) ? '/dist-static/favicon.png' : '/storage/profile/' + c.userFirstProfileImage)), ''));
+      let finalStr = '';
+      for(let i = 0; i < chatsList.length; ++i) {
+        let tmp: string;
+        if(this.userId == chatsList[i].userFirstId) {
+          tmp = chatTemplate
+          .replace('{{counterpartId}}', chatsList[i].userSecondId)
+          .replace('{{counterpartNickname}', chatsList[i].userSecondNickname)
+          .replace('{{profileImg}}', (chatsList[i].userSecondProfileImage === null) ? '/dist-static/favicon.png' : '/storage/profile/' + chatsList[i].userSecondProfileImage);
+        } else {
+          tmp = chatTemplate
+          .replace('{{counterpartId}}', chatsList[i].userFirstId)
+          .replace('{{counterpartNickname}', chatsList[i].userFirstNickname)
+          .replace('{{profileImg}}', (chatsList[i].userFirstProfileImg === null) ? '/dist-static/favicon.png' : '/storage/profile/' + chatsList[i].userFirstProfileImg);
+        }
+        finalStr = finalStr + tmp;
       }
+      return template.replace('{{chatsList}}', finalStr);
     } catch (e) {
       if(e instanceof SyntaxError) {
         return "server error";
