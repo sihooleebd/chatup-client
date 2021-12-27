@@ -40,7 +40,7 @@ export default class Chats {
         finalStr = finalStr + tmp;
       }
 
-      
+
       return chatsTemplate.replace("chatsList", finalStr);
     } catch (e) {
       if(e instanceof SyntaxError) {
@@ -55,6 +55,11 @@ export default class Chats {
        }
     }
   }
+
+
+
+
+  
   onChatClick(e: Event) {
     const elem = e.target as HTMLElement;
     const chatId = elem.parentElement.dataset.counterpartId;
