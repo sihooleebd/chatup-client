@@ -39,6 +39,8 @@ export default class Chats {
         }
         finalStr = finalStr + tmp;
       }
+
+      
       return chatsTemplate.replace("chatsList", finalStr);
     } catch (e) {
       if(e instanceof SyntaxError) {
