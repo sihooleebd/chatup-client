@@ -28,18 +28,18 @@ export default class Chats {
         let tmp: string;
         if(this.userId == chatsList[i].userFirstId) {
           tmp = chatTemplate
-          .replace('{{counterpartId}}', chatsList[i].userSecondId)
+          .replace('{{counterId}}', chatsList[i].userSecondId)
           .replace('{{counterNickname}}', chatsList[i].userSecondNickname)
           .replace('{{profileImg}}', (chatsList[i].userSecondProfileImage === null) ? '/dist-static/favicon.png' : '/storage/profile/' + chatsList[i].userSecondProfileImage);
         } else {
           tmp = chatTemplate
-          .replace('{{counterpartId}}', chatsList[i].userFirstId)
+          .replace('{{counterId}}', chatsList[i].userFirstId)
           .replace('{{counterNickname}}', chatsList[i].userFirstNickname)
           .replace('{{profileImg}}', (chatsList[i].userFirstProfileImg === null) ? '/dist-static/favicon.png' : '/storage/profile/' + chatsList[i].userFirstProfileImg);
         }
         finalStr = finalStr + tmp;
       }
-      return finalStr;
+      return chatsTemplate.replace("chatsList", finalStr);
     } catch (e) {
       if(e instanceof SyntaxError) {
         return "server error";
