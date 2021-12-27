@@ -61,6 +61,7 @@ export default class Chats {
 
   render = () => {
     this.getChats().then((s) => {
+      console.log('s', s);
       this.container.innerHTML = this.template.replace("{{chatsList}}", s);
       Menu.attach();
       console.log(document.querySelector('ul.posts'));
