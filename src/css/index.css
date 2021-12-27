@@ -1046,6 +1046,10 @@ div.chats > ul {
   padding: 20px;
 }
 
+div.chats > ul > li > .chat-metadata-wrapper > .profile > img {
+  height: 40px;
+  width: 40px;
+}
 
 div.chats > ul > li {
   /* border: 2px solid red; */
@@ -1060,17 +1064,4 @@ div.chats > ul > li {
 
 div.chats > ul > li:first-child {
   margin-top : 0px;
-}
-
-
-div.chats > ul > li > div.content {
-  margin-top: 8px;
-}
-
-
-
-div.chats > ul > li > div.title {
-  font-size: 28px;
-  margin-top: 8px
-  /* font-weight: bold; */
 }
