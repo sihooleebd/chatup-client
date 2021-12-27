@@ -1051,6 +1051,11 @@ div.chats > ul > li > .chat-metadata-wrapper > .profile > img {
   width: 40px;
 }
 
+div.chats > ul > li > .chat-metadata-wrapper > counterpart {
+  height: 40px;
+}
+
+
 div.chats > ul > li {
   /* border: 2px solid red; */
   margin-top: 12px;
