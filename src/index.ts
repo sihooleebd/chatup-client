@@ -50,6 +50,10 @@ function route() {
   } else if (path==='#/newRoom') {
     const newRoom = new NewRoom('#root');
     newRoom.render();
+
+
+
+    
   } else if(/(#)\/chatList\/\?userId=(\d+)/.test(path)) {
     const chatList = new Chats('#root', window.localStorage.getItem('profile').nickname);
     chatList.render();
