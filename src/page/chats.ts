@@ -77,7 +77,7 @@ export default class Chats {
       this.container.innerHTML = this.template.replace("{{chatsList}}", s);
       Menu.attach();
       console.log(document.querySelector('ul.posts'));
-      document.querySelector('ul.posts').addEventListener('click', this.onChatClick);
+      document.querySelector('ul.chats').addEventListener('click', this.onChatClick);
     });
   };
 }
