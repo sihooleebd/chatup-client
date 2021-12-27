@@ -15,6 +15,9 @@ const template = `
           <a href='#/rooms'>All Rooms</a>
         </li>
         <li>
+          <a href='#/chatList' id='all-chats'>All Chats</a>
+        </li>
+        <li>
           <a href='#/signIn' id='sign-out'>Sign Out</a>
         </li>
       </ul>
