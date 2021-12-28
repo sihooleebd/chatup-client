@@ -1020,6 +1020,7 @@ div.chats > ul {
 div.chats > ul > li > .chat-metadata-wrapper > .profile > img {
   height: 120px;
   width: 120px;
+  border-radius: 500px;
 }
 
 div.chats > ul > li > .chat-metadata-wrapper > counterpart {
@@ -1044,4 +1045,5 @@ div.chats > ul > li:first-child {
 
 li.hoverable:hover {
   background-color: #ddd;
+  transition-duration: 500ms;
 }
