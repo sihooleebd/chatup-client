@@ -1050,11 +1050,3 @@ li.hoverable:hover {
 li.hoverable {
   transition-duration: 500ms;
 }
-
-.hoverable-button:hover {
-  background-color: #aaa;
-}
-
-.hoverable-button {
-  transition-duration: 500ms;
-}
