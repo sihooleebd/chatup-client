@@ -1045,5 +1045,8 @@ div.chats > ul > li:first-child {
 
 li.hoverable:hover {
   background-color: #ddd;
+}
+
+li.hoverable {
   transition-duration: 500ms;
 }
