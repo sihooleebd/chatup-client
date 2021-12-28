@@ -1,5 +1,5 @@
 const roomTemplate = `
-  <li data-room-id='{{roomId}}'>
+  <li class='hoverable' data-room-id='{{roomId}}'>
   <div class='name'>{{name}}</div>
     <div class='room-metadata-wrapper'> 
       <div class='time'>{{createdAt}}</div>
