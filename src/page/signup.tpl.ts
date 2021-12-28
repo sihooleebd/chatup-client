@@ -13,7 +13,7 @@ const template = `
         <input type='password' placeholder='password' id='pw'>
       </li>
     </ul>
-    <input type='submit' value="Sign Up">
+    <input type='submit' class='hoverable-button' value="Sign Up">
     </form>
   </div>
 `;

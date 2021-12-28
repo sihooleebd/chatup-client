@@ -10,7 +10,7 @@ const template = `
         <textarea placeholder='type your amazing ideas here...'id='content'></textarea>
       </li>
     </ul>
-    <input type='submit' value="Post">
+    <input type='submit' class='hoverable-button' value="Post">
     </form>
   </div>
 `;
