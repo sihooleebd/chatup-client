@@ -1041,3 +1041,7 @@ div.chats > ul > li {
 div.chats > ul > li:first-child {
   margin-top : 0px;
 }
+
+li:hover {
+  background-color: #ddd;
+}
