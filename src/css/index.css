@@ -1034,10 +1034,11 @@ div.chats > ul > li > .chat-metadata-wrapper > .profile > img {
 }
 
 .counterpart {
-  font-size: 60px;
+  font-size: 40px;
   height: 120px;
   left: 140px;
-  top: 0;
+  top: 30px;
+  position: absolute;
 }
 
 
