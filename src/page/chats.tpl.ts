@@ -1,5 +1,5 @@
 const chatTemplate = `
-  <li data-counterpart-id='{{counterId}}'>
+  <li class='hoverable' data-counterpart-id='{{counterId}}'>
     <div class='chat-metadata-wrapper'> 
       <div class='profile'><img src='{{profileImg}}' ></div>
       <div class='counterpart'>{{counterNickname}}</div>

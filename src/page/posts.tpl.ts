@@ -1,5 +1,5 @@
 const postTemplate = `
-  <li data-post-id='{{postId}}'>
+  <li class='hoverable' data-post-id='{{postId}}'>
     <div class='post-metadata-wrapper'> 
       <div class='profile'><img src='{{profileImg}}' ></div>
       <div class='writer'>{{writerNickname}}</div>
