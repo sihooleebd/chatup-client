@@ -9,10 +9,10 @@ const template = `
       </div>
       <ul>
         <li>
-          <a href='#/posts'>General Room</a>
+          <a class='transition' href='#/posts'>General Room</a>
         </li>
         <li>
-          <a href='#/rooms'>All Rooms</a>
+          <a class='transition' href='#/rooms'>All Rooms</a>
         </li>
         <li>
           <a href='#/chatList' class='transition' id='all-chats'>All Chats</a>
