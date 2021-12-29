@@ -1071,5 +1071,7 @@ li.hoverable {
 }
 
 #sign-out:hover {
-  background-color: #A00;
+  background-color: #F00;
+  color:#FFF;
+  
 }
