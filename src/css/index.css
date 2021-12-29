@@ -700,6 +700,8 @@ div.menu > input[type=button] {
   height: 40px;
   width: 40px;
   cursor: pointer;
+
+  transition-duration: 500ms;
 }
 div.page.with-title > div.title > img {
   width: 100px;
@@ -714,7 +716,6 @@ div.menu > ul > li > a {
   border-radius: 100px;
   width: 150px;
   text-align: center;
-  transition-duration: 200ms;
 }
 
 div.menu > ul > li > a:hover {
