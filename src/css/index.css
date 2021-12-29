@@ -1069,3 +1069,7 @@ li.hoverable:hover {
 li.hoverable {
   transition-duration: 500ms;
 }
+
+#sign-out:hover {
+  background-color: #A00;
+}
