@@ -14,11 +14,10 @@ export default class Time {
       return '1 minute ago';
     } else if(diffInMs < 60*60*1000) {
       return String(Math.floor(diffInMs/1000/60) + ' minutes ago');
+    } else if(diffInMs >= 1000*60*60 && diffInMs < 2000*60*60) {
+      return String('1 hour ago');
     } else {
-      const isPlural: boolean = Math.floor(diffInMs/1000/60/60)>1;
-      return String(Math.floor(diffInMs/1000/60/60) + ' hour' 
-        + ((isPlural)?'s':'')
-        + ' ago');
+      return String(Math.floor(diffInMs/1000/60/60) + 'hours ago');
     }
     return '';
   }
