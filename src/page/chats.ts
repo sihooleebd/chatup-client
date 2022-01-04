@@ -34,7 +34,7 @@ export default class Chats {
           .replace('{{profileImg}}', (chatsList[i].userSecondProfileImage === null) ? '/dist-static/favicon.png' : '/storage/profile/' + chatsList[i].userSecondProfileImage);
         } else {
           tmp = chatTemplate
-          .replace('{{counterId}}', chatsList[i].userFirstId)
+          .replaceAll('{{counterId}}', chatsList[i].userFirstId)
           .replace('{{counterNickname}}', chatsList[i].userFirstNickname)
           .replace('{{profileImg}}', (chatsList[i].userFirstProfileImg === null) ? '/dist-static/favicon.png' : '/storage/profile/' + chatsList[i].userFirstProfileImg);
         }
@@ -64,10 +64,8 @@ export default class Chats {
   onChatClick(e: Event) {
     const elem = e.target as HTMLElement;
     console.log('elem', elem);
-    const parent = elem.parentElement.parentElement;
-    console.log('parent', parent);
-    const userIdStr = parent.dataset.counterpartId;
-    console.log('dataset', parent.dataset);
+    const userIdStr = elem.dataset.counterpartId;
+    console.log('dataset', elem.dataset);
     console.log('userid', userIdStr);
     if(!userIdStr || userIdStr === '0') {
       return;
@@ -93,7 +91,7 @@ export default class Chats {
       this.container.innerHTML = this.template.replace("{{chatsList}}", s);
       Menu.attach();
       console.log(document.querySelector('ul.posts'));
-      document.querySelector('ul.chats').addEventListener('click', this.onChatClick);
+      document.querySelector('ul.chatㄴ').addEventListener('click', this.onChatClick);
     });
   };
 }
