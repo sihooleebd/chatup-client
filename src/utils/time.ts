@@ -10,7 +10,7 @@ export default class Time {
 
     if(diffInMs < 1000*60) {
       return 'now';
-    } else if(diffInMs === 1000 * 60) {
+    } else if(diffInMs >= 1000 * 60 && diffInMs < 2000*60) {
       return '1 minute ago';
     } else if(diffInMs < 60*60*1000) {
       return String(Math.floor(diffInMs/1000/60) + ' minutes ago');
