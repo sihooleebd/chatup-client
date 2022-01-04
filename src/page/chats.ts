@@ -1,5 +1,4 @@
 import axios from "axios";
-import Time from "../utils/time";
 import template, { chatsTemplate, chatTemplate } from './chats.tpl'
 import Menu from "./menu";
 import * as constant from '../config/constant.json';
