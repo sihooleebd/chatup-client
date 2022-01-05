@@ -823,8 +823,7 @@ div.rooms > ul > li > div.room-metadata-wrapper div {
 }
 
 #submit-profile {
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin: 12px;
   height: 30px;
   background-color: rgba(256,256,256,0);
   border-radius: 30px;
@@ -832,6 +831,7 @@ div.rooms > ul > li > div.room-metadata-wrapper div {
   padding-right: 20px;
   border: 1px solid #555555;
   display: block;
+  
 }
 
 
