@@ -831,7 +831,7 @@ div.rooms > ul > li > div.room-metadata-wrapper div {
   padding-left: 20px;
   padding-right: 20px;
   border: 1px solid #555555;
-  
+  display: block;
 }
 
 
