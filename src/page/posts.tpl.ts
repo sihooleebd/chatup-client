@@ -20,7 +20,7 @@ const welcomeTemplate = `
     </div>
     <div class='title'>Welcome to this room!</div>
     <br>
-    <div class='content'>Welcome to a newly created room enjoy!(psstttttt) What? This room has no posts?! Oh no! Start by writing a post by pressing the button on the top right of the screen!</div>
+    <div class='content'>Welcome to a newly created room! Enjoy!(psst) WHAT? This room has no posts?! Oh no! Start by writing a post by pressing the button on the top right of the screen!</div>
     </li>
 `;
 
