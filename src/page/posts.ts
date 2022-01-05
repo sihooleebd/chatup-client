@@ -1,6 +1,6 @@
 import axios from "axios";
 import Time from "../utils/time";
-import template, { postsTemplate, postTemplate } from './posts.tpl'
+import template, { postsTemplate, postTemplate, welcomeTemplate } from './posts.tpl'
 import Menu from "./menu";
 import * as constant from '../config/constant.json';
 
@@ -28,7 +28,7 @@ export default class Posts {
       console.log(postList.length);
       if(postList.length === 0) {
         console.log('aaa');
-        return postsTemplate.replace(`{{posts}}`, `<img src='/dist-static/room-intro.png'>`);
+        return postsTemplate.replace(`{{posts}}`, welcomeTemplate);
       }
       return postsTemplate.replace('{{posts}}',
         postList.reduce((a,c) => (
