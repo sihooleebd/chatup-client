@@ -813,13 +813,25 @@ div.rooms > ul > li > div.room-metadata-wrapper div {
   margin-right:10px;
 }
 
-#submit-new-room, #submit-profile {
+#submit-new-room {
   background: url(/src/static/img/done-icon.png) center center no-repeat;
   background-size: 40px 40px;
   font-size: 0;
   width: 40px;
   height: 40px;
   opacity: 0.7;
+}
+
+#submit-profile {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  height: 30px;
+  background-color: rgba(256,256,256,0);
+  border-radius: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #555555;
+  
 }
 
 

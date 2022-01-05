@@ -143,7 +143,6 @@ export default class EditProfile {
       document.querySelector('.photo-wrapper').addEventListener('click', () => {
         (document.querySelector('#photo') as HTMLElement).click();
     });
-    Menu.attach();
 
     })
 
