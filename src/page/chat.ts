@@ -109,8 +109,9 @@ export default class Chat {
     })
   
 
-    this.socket = io(`${constant.PROTOCOL}://${constant.HOST}:${constant.CHAT_SERVER_PORT}/`, {
-      "transports" : ['websocket']
+    this.socket = io(`${constant.PROTOCOL}://${constant.HOST}:${constant.CHAT_SERVER_PORT}/chat/`, {
+      "transports" : ['websocket'],
+      "secure": true
     });
     
     console.log('socket created', this.socket);
