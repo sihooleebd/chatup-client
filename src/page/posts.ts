@@ -16,7 +16,7 @@ export default class Posts {
 
   async getPosts(): Promise<string> {
     try {
-      const result = await axios.get(`http://${constant.HOST}:${constant.SERVER_PORT}/api/posts?roomId=${this.roomId}`, {
+      const result = await axios.get(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts?roomId=${this.roomId}`, {
         withCredentials: true,
       });
 

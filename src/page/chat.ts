@@ -55,7 +55,7 @@ export default class Chat {
 
   async loadPrevData() {
     try {
-      const url = `http://${constant.HOST}:${constant.SERVER_PORT}/api/chatRooms/${this.roomId}/messages`;
+      const url = `${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/chatRooms/${this.roomId}/messages`;
       const result = await axios.get(url, {
         withCredentials: true,
       });
@@ -88,7 +88,7 @@ export default class Chat {
   }
 
   async getChatRoomInfo(): Promise<number> {
-    const url = `http://${constant.HOST}:${constant.SERVER_PORT}/api/chatrooms?counterpartUserId=${this.counterpart.id}`;
+    const url = `${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/chatrooms?counterpartUserId=${this.counterpart.id}`;
     const result = await axios.get(url, {withCredentials: true});
     if(result.data.isSuccess) {
       return result.data.objects[0].roomId;
@@ -109,7 +109,7 @@ export default class Chat {
     })
   
 
-    this.socket = io(`http://${constant.HOST}:${constant.CHAT_SERVER_PORT}/`, {
+    this.socket = io(`${constant.PROTOCOL}://${constant.HOST}:${constant.CHAT_SERVER_PORT}/`, {
       "transports" : ['websocket']
     });
     
