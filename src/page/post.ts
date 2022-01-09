@@ -22,7 +22,7 @@ export default class Post {
   async getPost(): Promise<string> {
     try {
       console.log(this.postId);
-      const result = await axios.get(`http://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}`, {
+      const result = await axios.get(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}`, {
         withCredentials: true,
       });
       const post = result.data.object;
@@ -77,7 +77,7 @@ export default class Post {
     }
 
     axios
-      .post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}/comments`,{ content }, {withCredentials: true})
+      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}/comments`,{ content }, {withCredentials: true})
       .then((result) => {
         console.log(result);
         if (result.data.isSuccess) {
@@ -100,7 +100,7 @@ export default class Post {
 
   async getComments(): Promise<string> {
     try {
-      const result = await axios.get(`http://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}/comments`, {
+      const result = await axios.get(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}/comments`, {
         withCredentials: true,
       });
       const commentList = result.data.objects;

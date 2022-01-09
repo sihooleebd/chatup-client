@@ -39,7 +39,7 @@ export default class EditProfile {
     //여기까지 오면 자료 있음
 
     axios
-      .post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
+      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
         withCredentials: true,
       })
       .then((result) => {
@@ -78,7 +78,7 @@ export default class EditProfile {
 
     const form = new FormData();
     form.append("photo", selectedFile);
-    axios.post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/users/me/profileImage`, form, {
+    axios.post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/me/profileImage`, form, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -108,7 +108,7 @@ export default class EditProfile {
       return;
     }
     console.log('object',object);
-    axios.put(`http://${constant.HOST}:${constant.SERVER_PORT}/api/users/me`, object , {
+    axios.put(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/me`, object , {
       withCredentials: true,
     }).then((response) => {
       console.log('response', response);

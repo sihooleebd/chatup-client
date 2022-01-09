@@ -36,7 +36,7 @@ export default class SignIn {
     //여기까지 오면 자료 있음
 
     axios
-      .post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
+      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
         withCredentials: true,
       })
       .then((result) => {

@@ -37,7 +37,7 @@ export default class NewRoom {
     //여기까지 오면 자료 있음
 
     axios
-      .post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
+      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
         withCredentials: true,
       })
       .then((result) => {
@@ -76,7 +76,7 @@ export default class NewRoom {
 
     const form = new FormData();
     form.append("photo", selectedFile);
-    axios.post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/users/me/profileImage`, form, {
+    axios.post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/me/profileImage`, form, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -106,7 +106,7 @@ export default class NewRoom {
       return;
     }
     console.log('object',object);
-    axios.post(`http://${constant.HOST}:${constant.SERVER_PORT}/api/rooms`, object , {
+    axios.post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/rooms`, object , {
       withCredentials: true,
     }).then((response) => {
       console.log('response', response);

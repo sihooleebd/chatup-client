@@ -15,7 +15,7 @@ export default class Rooms {
 
   async getRooms(): Promise<string> {
     try {
-      const result = await axios.get(`http://${constant.HOST}:${constant.SERVER_PORT}/api/rooms`, {
+      const result = await axios.get(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/rooms`, {
         withCredentials: true,
       });
       const roomList = result.data.objects;

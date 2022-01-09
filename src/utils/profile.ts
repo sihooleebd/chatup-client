@@ -16,7 +16,7 @@ export default class Profile {
     if(isMe && window.localStorage.getItem('profile') && !forceUpdate) {
       return Promise.resolve(JSON.parse(window.localStorage.getItem('profile')));
     } else {
-      const url = (isMe)?`http://${constant.HOST}:${constant.SERVER_PORT}/api/users/me`:`http://${constant.HOST}:${constant.SERVER_PORT}/api/users/${userId}`
+      const url = (isMe)?`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/me`:`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/${userId}`
 
       return axios.get(url, {
         withCredentials: true,
