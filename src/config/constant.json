@@ -4,5 +4,5 @@
   "HOST" : "chatup.mcjunon.com",
   "PROTOCOL" : "https",
   "SERVER_PORT" : "443",
-  "CHAT_SERVER_PORT" : "8082"
+  "CHAT_SERVER_PORT" : "443"
 }
