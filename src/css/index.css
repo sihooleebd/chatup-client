@@ -719,6 +719,7 @@ div.menu > ul > li > a {
 
 .developed-by {
   display: inline-block;
+  margin: auto;
   margin-top: 25px;
   border-radius: 100px;
   width: 150px;
