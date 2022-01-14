@@ -21,6 +21,7 @@ const template = `
           <a href='#/signIn' class='transition' id='sign-out'>Sign Out</a>
         </li>
       </ul>
+      <div class='developed-by'>Developed by benjamin</div>
       <input type='button' class='transition' id='menu-close' class='close' value='close'>
     </div>
   </div>
