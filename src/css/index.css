@@ -722,7 +722,7 @@ div.menu > ul > li > a {
   margin: auto;
   margin-top: 25px;
   border-radius: 100px;
-  width: 150px;
+  width: 100%;
   text-align: center;
 }
 .developed-by.aTag {
