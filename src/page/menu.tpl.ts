@@ -21,7 +21,8 @@ const template = `
           <a href='#/signIn' class='transition' id='sign-out'>Sign Out</a>
         </li>
       </ul>
-      <div class='developed-by'>Developed by benjamin</div>
+      <div class='developed-by divTag'>Developed by benjamin1234</div>
+      <a class='developed-by aTag' href='https://www.benny.mcjunon.com'>Learn more</a>
       <input type='button' class='transition' id='menu-close' class='close' value='close'>
     </div>
   </div>
