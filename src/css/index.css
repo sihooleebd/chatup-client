@@ -725,6 +725,9 @@ div.menu > ul > li > a {
   width: 150px;
   text-align: center;
 }
+.developed-by.aTag {
+  margin-top:0;
+}
 
 .transition{
   transition-duration: 500ms;
