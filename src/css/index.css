@@ -727,6 +727,12 @@ div.menu > ul > li > a {
 }
 .developed-by.aTag {
   margin-top:0;
+  transition-duration: 500ms;
+}
+
+.developed-by.aTag:hover {
+  color: #00F;
+  text-decoration: underline;
 }
 
 .transition{
