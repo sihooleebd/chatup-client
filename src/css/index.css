@@ -717,6 +717,15 @@ div.menu > ul > li > a {
 
 }
 
+.developed-by {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px;
+  border-radius: 100px;
+  width: 150px;
+  text-align: center;
+}
+
 .transition{
   transition-duration: 500ms;
 
