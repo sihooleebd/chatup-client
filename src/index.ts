@@ -1,3 +1,7 @@
+console.log('process', process);
+console.log('env', process.env);
+console.log('env.NODE_ENV', process.env.NODE_ENV);
+console.log('env.MY_NAME', process.env.MY_NAME);
 import SignIn from "./page/signin";
 import SignUp from "./page/signup";
 import Posts from "./page/posts";
@@ -71,6 +75,7 @@ function route() {
 
 }
 console.log('start');
+console.log('env', process.env);
 Profile.retrieveProfile(true, undefined, true);
 
 window.addEventListener("hashchange", route);

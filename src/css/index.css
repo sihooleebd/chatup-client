@@ -735,6 +735,10 @@ div.menu > ul > li > a {
   text-decoration: underline;
 }
 
+.developed-by.divTag {
+  margin-top: 25px;
+}
+
 .transition{
   transition-duration: 500ms;
 

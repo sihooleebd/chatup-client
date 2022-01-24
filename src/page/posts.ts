@@ -2,7 +2,7 @@ import axios from "axios";
 import Time from "../utils/time";
 import template, { postsTemplate, postTemplate, welcomeTemplate } from './posts.tpl'
 import Menu from "./menu";
-import * as constant from '../config/constant.json';
+import constant from '../config/constant';
 
 export default class Posts {
   template: string = template;

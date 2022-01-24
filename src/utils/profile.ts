@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as constant from '../config/constant.json';
+import constant from '../config/constant';
 
 
 export type UserProfile = {

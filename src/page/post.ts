@@ -1,11 +1,11 @@
 import axios from "axios";
 import Time from "../utils/time";
-import template, { postTemplate, commentsTemplate, commentLiTemplate} from './post.tpl'
+import template, { postTemplate, commentsTemplate, commentLiTemplate, deleteCode} from './post.tpl'
 import Menu from "./menu";
 import HTMLDom from "../utils/htmldom";
 import Url from "../utils/url";
 import Profile from "../utils/profile";
-import * as constant from '../config/constant.json';
+import constant from '../config/constant';
 import HTMLHelper from "../utils/html";
 
 
@@ -33,6 +33,14 @@ export default class Post {
         .replace('{{writerNickname}}', post.writerNickname)
         .replace('{{writtenAt}}', Time.getReadableTime(post.writtenAt))
         .replace('{{profileImg}}', Url.getProfileUrl(post.profileImg));
+      var jsonStr = window.localStorage.getItem('profile');
+      var parsed = JSON.parse(jsonStr);
+      const myId = parsed.id;
+      if(myId==post.writerId) {
+        tmp.replace('{{deleteIcon}}', deleteCode);
+      } else {
+        tmp.replace('{{deleteIcon}}', '');
+      }
       return tmp;
     } catch (e) {
       if(e instanceof SyntaxError) {
@@ -153,6 +161,30 @@ export default class Post {
 
   }
 
+  async onPostDelete(e: Event) {
+    try {
+      const result = await axios.delete(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}`, {
+        withCredentials: true,
+      });
+      const isSuccess = result.data.isSuccess;
+      const message = result.data.message;
+      if(!isSuccess) {
+        alert("Aw snap! Something went wrong. Message : " + message);
+      }
+    } catch (e) {
+      if(e instanceof SyntaxError) {
+        return "server error";
+      } else if (e.response.status === 401) {
+        setTimeout(() => {
+          location.href='/#/signIn'
+        });
+        return '';
+       } else {
+        return "axios error";
+       }
+    }
+  }
+
   render = () => {
     this.container.innerHTML = template;
     Menu.attach();
@@ -164,6 +196,9 @@ export default class Post {
       this.container.querySelector('.comments-wrapper').prepend(ulElement);
     });
     document.querySelector('#new-comment-form').addEventListener('submit', this.onCommentSubmit);
+    if(document.querySelector("#delete-post")!=null) {
+      document.querySelector("#delete-post").addEventListener('click',this.onPostDelete);
+    }
     
     HTMLDom.addChildEventListener(this.container.querySelector('.post.page'), 'click', '.profile', this.onProfileClick);
 
