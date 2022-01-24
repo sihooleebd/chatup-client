@@ -1,7 +1,7 @@
 import axios from "axios";
 import template, { chatsTemplate, chatTemplate } from './chats.tpl'
 import Menu from "./menu";
-import * as constant from '../config/constant.json';
+import constant from '../config/constant';
 import Profile from "../utils/profile";
 
 export default class Chats {

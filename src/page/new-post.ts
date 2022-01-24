@@ -1,6 +1,6 @@
 import axios from "axios";
 import template from "./new-post.tpl";
-import * as constant from '../config/constant.json';
+import constant from '../config/constant';
 
 
 export default class NewPost {

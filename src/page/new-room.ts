@@ -1,7 +1,7 @@
 import axios from "axios";
 import template from "./new-room.tpl";
 import Menu from "./menu";
-import * as constant from '../config/constant.json';
+import constant from '../config/constant';
 
 
 export default class NewRoom {

@@ -24,6 +24,12 @@ const commentLiTemplate = `
   <li>
   `;
 
+const deleteCode = `
+  <div class='nav-button-wrapper right'>
+    <input type='button' class='nav-button' id='delete-post' value='delete'>
+  </div>
+`
+
 const template = `
   <div class='post page with-title'>
     <div class='title'>
@@ -31,6 +37,7 @@ const template = `
       <div class='nav-button-wrapper left'>
         <input type='button' class='nav-button' id='menu' value='menu'>
       </div>
+      {{deleteIcon}}
     </div>
     <div class='post-wrapper'>
     </div>
@@ -42,5 +49,5 @@ const template = `
   </div>
   `;
   
-  export {postTemplate, commentsTemplate, commentLiTemplate};
+  export {postTemplate, commentsTemplate, commentLiTemplate, deleteCode};
   export default template;

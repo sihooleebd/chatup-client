@@ -6,7 +6,7 @@ import HTMLDom from "../utils/htmldom";
 import io, { Socket } from 'socket.io-client';
 import DifferedPromise from "./differed-promise";
 import Profile, { UserProfile } from "../utils/profile";
-import * as constant from '../config/constant.json';
+import constant from '../config/constant';
 import HTMLHelper from "../utils/html";
 
 export default class Chat {
@@ -111,7 +111,7 @@ export default class Chat {
 
     this.socket = io(`${constant.PROTOCOL}://${constant.HOST}:${constant.CHAT_SERVER_PORT}`, {
       "transports" : ['websocket'],
-      "secure": true,
+      "secure": constant.CHAT_SECURE,
       "path": "/chat/socket.io"
     });
     

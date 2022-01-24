@@ -1,6 +1,6 @@
 import axios from "axios";
 import template from "./signin.tpl";
-import * as constant from '../config/constant.json';
+import constant from '../config/constant';
 import Profile from "../utils/profile";
 
 

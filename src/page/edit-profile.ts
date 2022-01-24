@@ -3,7 +3,7 @@ import Profile from "../utils/profile";
 import Url from "../utils/url";
 import template from "./edit-profile.tpl";
 import Menu from "./menu";
-import * as constant from '../config/constant.json';
+import constant from '../config/constant';
 
 
 export default class EditProfile {
