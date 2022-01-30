@@ -762,6 +762,16 @@ div.menu > ul {
   opacity: 0.7;
 }
 
+#delete-post {
+  font-size: 0;
+  background: url(/src/static/img/delete-icon.png) center center no-repeat;
+  background-size: 30px 30px;
+  border: 0;
+  height: 30px;
+  width: 30px;
+  opacity: 0.7;
+}
+
 /* 상세보기 관련 css */
 
 /* comments related css */

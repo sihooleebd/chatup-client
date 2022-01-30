@@ -17,6 +17,7 @@ export default class Post {
   constructor(container, postId) {
     this.container = document.querySelector(container);
     this.postId = postId;
+    console.log('postId = ', this.postId);
   }
 
   async getPost(): Promise<string> {
@@ -33,15 +34,21 @@ export default class Post {
         .replace('{{writerNickname}}', post.writerNickname)
         .replace('{{writtenAt}}', Time.getReadableTime(post.writtenAt))
         .replace('{{profileImg}}', Url.getProfileUrl(post.profileImg));
+      let tmp2 = template.replace('{{PostView}}', tmp);
+
       var jsonStr = window.localStorage.getItem('profile');
       var parsed = JSON.parse(jsonStr);
       const myId = parsed.id;
+      console.log("COMPARING IF THIS IS MY POST");
       if(myId==post.writerId) {
-        tmp.replace('{{deleteIcon}}', deleteCode);
+        console.log("YES");
+        tmp2 = tmp2.replace('{{deleteIcon}}', deleteCode);
+        console.log(tmp2);
       } else {
-        tmp.replace('{{deleteIcon}}', '');
+        console.log("NO");
+        tmp2 = tmp2.replace('{{deleteIcon}}', '');
       }
-      return tmp;
+      return tmp2;
     } catch (e) {
       if(e instanceof SyntaxError) {
         return "server error";
@@ -161,7 +168,9 @@ export default class Post {
 
   }
 
-  async onPostDelete(e: Event) {
+  onPostDelete = async (e: Event) => {
+    console.log("POST DELETED");
+    console.log('postId', this.postId);
     try {
       const result = await axios.delete(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}`, {
         withCredentials: true,
@@ -170,7 +179,10 @@ export default class Post {
       const message = result.data.message;
       if(!isSuccess) {
         alert("Aw snap! Something went wrong. Message : " + message);
+        return;
       }
+      alert("Post successfully deleted!");
+      history.back();
     } catch (e) {
       if(e instanceof SyntaxError) {
         return "server error";
@@ -185,28 +197,25 @@ export default class Post {
     }
   }
 
-  render = () => {
+  render = async () => {
     this.container.innerHTML = template;
-    Menu.attach();
-    this.getPost().then((s) => {
-      this.container.querySelector('.post-wrapper').innerHTML = s;
-    });
+    const postHtml = await this.getPost();
+    this.container.innerHTML = postHtml;
+    
+    console.log(this.container.innerHTML);
     this.getComments().then((s) => {
       const ulElement = HTMLDom.htmlToElement(s);
       this.container.querySelector('.comments-wrapper').prepend(ulElement);
     });
     document.querySelector('#new-comment-form').addEventListener('submit', this.onCommentSubmit);
-    if(document.querySelector("#delete-post")!=null) {
+    console.log('querySelector --> #delete-post', document.querySelector('#delete-post'));
+    if(document.querySelector("#delete-post")!==null) {
+      console.log("adding delete eventlistener");
       document.querySelector("#delete-post").addEventListener('click',this.onPostDelete);
     }
     
     HTMLDom.addChildEventListener(this.container.querySelector('.post.page'), 'click', '.profile', this.onProfileClick);
-
-    window.addEventListener('scroll', (e: Event) => {
-      console.log('scroll y:', window.scrollY);
-    
-      const postContent = this.container.querySelector('.post-wrapper');
-    })      
+    Menu.attach();      
     
   }
 }
