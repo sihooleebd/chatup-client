@@ -39,8 +39,7 @@ const template = `
       </div>
       {{deleteIcon}}
     </div>
-    <div class='post-wrapper'>
-    </div>
+    <div class='post-wrapper'>{{PostView}}</div>
     <div class='comments-wrapper'>
       <form id='new-comment-form' autocomplete="off">
         <input type='text' placeholder='enter your awsome comment here..'  id='new-comment'>
