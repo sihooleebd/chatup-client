@@ -149,8 +149,7 @@ export default class Chat {
     const msgStr = messageTemplate    
       .replace('{{content}}', HTMLHelper.escape(content))
       .replace('{{sentAt}}', Time.getReadableTime(timeStr))
-      .replace('{{senderNickname}}', sender.nickname)
-      .replace('{{profileImg}}', (sender.profileImg === null) ? '/dist-static/favicon.png' : '/storage/profile/' + sender.profileImg);
+      .replace('{{senderNickname}}', sender.nickname);
     console.log(HTMLHelper.escape(content));
     let msgElem = HTMLDom.htmlToElement(msgStr) as HTMLElement;
     
