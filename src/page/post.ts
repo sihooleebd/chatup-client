@@ -172,17 +172,23 @@ export default class Post {
     console.log("POST DELETED");
     console.log('postId', this.postId);
     try {
-      const result = await axios.delete(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}`, {
-        withCredentials: true,
-      });
-      const isSuccess = result.data.isSuccess;
-      const message = result.data.message;
-      if(!isSuccess) {
-        alert("Aw snap! Something went wrong. Message : " + message);
-        return;
+      if(confirm(`Are you sure? This action can't be reversed. `) {
+        const result = await axios.delete(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}`, {
+          withCredentials: true,
+        });
+        const isSuccess = result.data.isSuccess;
+        const message = result.data.message;
+        if(!isSuccess) {
+          alert("Aw snap! Something went wrong. Message : " + message);
+          return;
+        } else {
+          alert('success!');
+          history.back();
+        }        
+      } else {
+        alert('cancelled!');
       }
-      alert("Post successfully deleted!");
-      history.back();
+      
     } catch (e) {
       if(e instanceof SyntaxError) {
         return "server error";
