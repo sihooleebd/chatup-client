@@ -37,10 +37,22 @@ export default class NewPost {
     for (let i = 0; i < arr.length; ++i) {
       if (!arr[i][1]) {
         alert(`Please fill up the ${arr[i][0]} section!`);
+        
         return;
       }
     }
-
+    let str = arr[0][1];
+    console.log(str);
+    if (!str.replace(/\s/g, '').length) {
+      alert(`Your title is consisted of only spaces! Please enter a valid text!`);
+      return;
+    }
+    str = arr[1][1];
+    console.log(str);
+    if (!str.replace(/\s/g, '').length) {
+      alert(`Your content is consisted of only spaces! Please enter a valid text!`);
+      return;
+    }
     //여기까지 오면 자료 있음
 
     axios
