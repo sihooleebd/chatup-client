@@ -1,7 +1,13 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import template from "./new-post.tpl";
 import constant from '../config/constant';
+import { MyResponseT } from "../types";
 
+type PostInfoT = {
+  title: string;
+  content: string;
+  roomId: string;
+}
 
 export default class NewPost {
   template: string = template;
@@ -27,7 +33,7 @@ export default class NewPost {
     const roomId = this.roomId;
       
 
-    const postInfo = {
+    const postInfo:PostInfoT = {
       title,
       content,
       roomId
@@ -56,7 +62,7 @@ export default class NewPost {
     //여기까지 오면 자료 있음
 
     axios
-      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts`, postInfo, {withCredentials: true})
+      .post<PostInfoT, AxiosResponse<MyResponseT>>(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts`, postInfo, {withCredentials: true})
       .then((result) => {
         console.log(result);
         if (result.data.isSuccess) {

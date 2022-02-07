@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import Time from "../utils/time";
 import template, { postTemplate, commentsTemplate, commentLiTemplate, deleteCode} from './post.tpl'
 import Menu from "./menu";
@@ -7,7 +7,10 @@ import Url from "../utils/url";
 import Profile from "../utils/profile";
 import constant from '../config/constant';
 import HTMLHelper from "../utils/html";
-
+import { MyResponseT } from "../types";
+type CommentT = {
+  content : string;
+};
 
 export default class Post {
   template: string = template;
@@ -26,7 +29,8 @@ export default class Post {
       const result = await axios.get(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}`, {
         withCredentials: true,
       });
-      const post = result.data.object;
+      const data = result.data as MyResponseT;
+      const post = data.object;
       console.log(post);
       const tmp =  postTemplate.replace('{{title}}', post.title)
         .replace('{{content}}', (post.content as string).replace(/(?:\r\n|\r|\n)/g, '<br>'))
@@ -77,8 +81,9 @@ export default class Post {
       const li = HTMLDom.htmlToElement(liStr);
       this.container.querySelector('.comments-wrapper ul').prepend(li);
 
-    }))
-    document.getElementById("new-comment").value = '';
+    }));
+
+    (document.getElementById("new-comment") as HTMLInputElement).value = '';
   }
 
   onCommentSubmit = (e) => {
@@ -92,7 +97,7 @@ export default class Post {
     }
 
     axios
-      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}/comments`,{ content }, {withCredentials: true})
+      .post<CommentT, AxiosResponse<MyResponseT>>(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}/comments`,{ content }, {withCredentials: true})
       .then((result) => {
         console.log(result);
         if (result.data.isSuccess) {
@@ -118,7 +123,8 @@ export default class Post {
       const result = await axios.get(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}/comments`, {
         withCredentials: true,
       });
-      const commentList = result.data.objects;
+      const data = result.data as MyResponseT;
+      const commentList = data.objects;
       console.log(commentList);
       return commentsTemplate.replace('{{comments}}',
         commentList.reduce((a,c) => (
@@ -172,12 +178,13 @@ export default class Post {
     console.log("POST DELETED");
     console.log('postId', this.postId);
     try {
-      if(confirm(`Are you sure? This action can't be reversed. `) {
+      if(confirm(`Are you sure? This action can't be reversed. `)) {
         const result = await axios.delete(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/posts/${this.postId}`, {
           withCredentials: true,
         });
-        const isSuccess = result.data.isSuccess;
-        const message = result.data.message;
+        const data = result.data as MyResponseT;
+        const isSuccess = data.isSuccess;
+        const message = data.message;
         if(!isSuccess) {
           alert("Aw snap! Something went wrong. Message : " + message);
           return;
