@@ -8,6 +8,7 @@ import DifferedPromise from "./differed-promise";
 import Profile, { UserProfile } from "../utils/profile";
 import constant from '../config/constant';
 import HTMLHelper from "../utils/html";
+import { MyResponseT } from "../types";
 
 export default class Chat {
   template: string = template;
@@ -59,7 +60,8 @@ export default class Chat {
       const result = await axios.get(url, {
         withCredentials: true,
       });
-      const messageList = result.data.objects;
+      const data = result.data as MyResponseT;
+      const messageList = data.objects;
       messageList.forEach(message => {
         const senderNickname = (message.senderId === this.me.id)? this.me.nickname : this.counterpart.nickname;
         const messageElem = HTMLDom.htmlToElement(
@@ -90,8 +92,9 @@ export default class Chat {
   async getChatRoomInfo(): Promise<number> {
     const url = `${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/chatrooms?counterpartUserId=${this.counterpart.id}`;
     const result = await axios.get(url, {withCredentials: true});
-    if(result.data.isSuccess) {
-      return result.data.objects[0].roomId;
+    const data = result.data as MyResponseT;
+    if(data.isSuccess) {
+      return data.objects[0].roomId;
     } else {
       return 0;
     }
@@ -100,9 +103,9 @@ export default class Chat {
   initChatRoom() {
     console.log('initChatRoom');
     //disconnect ALL prev sockets
-    window.store = window.store || {};
-    window.store.connectedSockets = window.store.connectedSockets || [];
-    window.store.connectedSockets.forEach(ps => {
+    (window as any).store = (window as any).store || {};
+    (window as any).store.connectedSockets = (window as any).store.connectedSockets || [];
+    (window as any).store.connectedSockets.forEach(ps => {
       console.log("disconnect ps!!");
       console.log(ps);
       ps.disconnect();
@@ -118,7 +121,7 @@ export default class Chat {
     console.log('socket created', this.socket);
 
     this.socket.on("connect", () => {
-      window.store.connectedSockets.push(this.socket);
+      (window as any).store.connectedSockets.push(this.socket);
       console.log("CONNECTED!!!!!!");
       console.log(this.socket.id); // x8WIv7-mJelg7on_ALbx
       // server에 roomId 를 알려줘야 함
