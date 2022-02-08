@@ -42,6 +42,7 @@ export default class SignUp {
         if (result.data.isSuccess) {
           alert("You have been registered. Welcome to our blog!");
           location.href = "/#/signIn";
+          axios.post(`https://hooks.slack.com/services/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`, {text : `${arr[1][1]} - ${arr[0][1]} just joined slack!`})
         } else {
           console.log("SUSSS");
           alert(result.data.message);
