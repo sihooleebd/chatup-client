@@ -1,8 +1,14 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import template from "./signup.tpl";
 import constant from '../config/constant';
+import { MyResponseT } from "../types";
 
 
+type UserInfoT = {
+  email: string;
+  nickname: string;
+  pw: string;
+}
 export default class SignUp {
   template: string = template;
   container: HTMLElement;
@@ -35,17 +41,18 @@ export default class SignUp {
 
     //여기까지 오면 자료 있음
 
+
     axios
-      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signUp`, userInfo)
+      .post<UserInfoT, AxiosResponse<MyResponseT>>(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signUp`, userInfo)
       .then((result) => {
         console.log(result);
-        if (result.data.isSuccess) {
+        const data = result.data as MyResponseT;
+        if (data.isSuccess) {
           alert("You have been registered. Welcome to our blog!");
           location.href = "/#/signIn";
-          axios.post(`https://hooks.slack.com/services/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`, {text : `${arr[1][1]} - ${arr[0][1]} just joined slack!`})
         } else {
           console.log("SUSSS");
-          alert(result.data.message);
+          alert(data.message);
         }
       })
       .catch((error) => {
