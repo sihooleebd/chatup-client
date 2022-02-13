@@ -5,6 +5,7 @@ import { MyResponseT } from "../types";
 import { isSpace } from "../utils/stringValidate";
 
 
+
 type UserInfoT = {
   email: string;
   nickname: string;
