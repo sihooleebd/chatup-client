@@ -1,8 +1,15 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import template from "./new-room.tpl";
 import Menu from "./menu";
 import constant from '../config/constant';
+import { isSpace } from "../utils/stringValidate";
+import { MyResponseT } from "../types";
 
+
+type UserInfoT = {
+  email: string,
+  pw: string
+}
 
 export default class NewRoom {
   template: string = template;
@@ -36,13 +43,15 @@ export default class NewRoom {
 
     //여기까지 오면 자료 있음
 
+    
     axios
-      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
+      .post<UserInfoT, AxiosResponse<MyResponseT>>(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
         withCredentials: true,
       })
       .then((result) => {
         console.log(result);
-        if (result.data.isSuccess) {
+        const data = result.data as MyResponseT;
+        if (data.isSuccess) {
           alert("Successfully logged in. Happy writing!");
           //document.cookie = "userInfo=" + result.data.message;
 
@@ -58,51 +67,19 @@ export default class NewRoom {
       });
   };
 
-  onSignUpClick() {
-    location.href = '/#/signUp'
-  }
-
-  onImageChange = (e) => {
-    console.log(e);
-    const selectedFile = document.getElementById('photo').files[0];
-    console.log(selectedFile);
-    if(!selectedFile) {
-      return;
-    }
-    if(selectedFile.type !== 'image/png' && selectedFile.type !== 'image/jpg') {
-      alert('you are only allowed too submit file types of .jpg or .png. Please check your file format.');
-      return;
-    }
-
-    const form = new FormData();
-    form.append("photo", selectedFile);
-    axios.post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/me/profileImage`, form, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-    .then((response) => {
-      // 응답 처리
-      console.log(response.data);
-      document.querySelector('div.edit-profile > form > div.photo-wrapper > div.profile-viewer').style.backgroundImage = `url('/storage/temp/${response.data.object.profileImgFileName}')`;
-      console.log(`url(/storage/temp/${response.data.object.profileImgFileName})`);
-      this.profileImageFileName = response.data.object.profileImgFileName;
-      console.log(this.profileImageFileName);
-    })
-    .catch((error) => {
-      // 예외 처리
-      console.error(error);
-})
-  }
-
   onDoneClick = (e) => {
     console.log('done!');
     const object = {
       roomName: (<HTMLInputElement>document.querySelector("#room-name-input")).value
     }
 
+
     if(object.roomName.length === 0) {
       alert('please fill up the room name section!');
+      return;
+    }
+    if(isSpace((<HTMLInputElement>document.querySelector("#room-name-input")).value)) {
+      alert('your room name is consisted only of spaces! Please enter a valid text!');
       return;
     }
     console.log('object',object);

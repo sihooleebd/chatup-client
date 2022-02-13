@@ -2,7 +2,6 @@ import axios from "axios";
 import Profile from "../utils/profile";
 import Url from "../utils/url";
 import template from "./edit-profile.tpl";
-import Menu from "./menu";
 import constant from '../config/constant';
 
 
@@ -59,10 +58,6 @@ export default class EditProfile {
         console.error(error);
       });
   };
-
-  onSignUpClick() {
-    location.href = '/#/signUp'
-  }
 
   onImageChange = (e) => {
     console.log(e);
