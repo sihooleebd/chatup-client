@@ -2,7 +2,9 @@ import axios from "axios";
 import Profile from "../utils/profile";
 import Url from "../utils/url";
 import template from "./edit-profile.tpl";
+import Menu from "./menu";
 import constant from '../config/constant';
+import { MyResponseT } from "../types";
 
 
 export default class EditProfile {

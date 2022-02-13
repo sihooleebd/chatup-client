@@ -67,6 +67,7 @@ export default class NewRoom {
       });
   };
 
+
   onDoneClick = (e) => {
     console.log('done!');
     const object = {
