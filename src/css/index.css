@@ -532,6 +532,9 @@ div.page-not-found  {
   justify-content: center;
   align-items: center;
   background: url(/src/static/img/background.png) center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
