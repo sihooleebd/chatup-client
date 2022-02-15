@@ -26,7 +26,10 @@ div::-webkit-scrollbar {
 .sign-in.page, .sign-up.page, .new-room.page, .new-post.page, .edit-profile.page {
 
   background: url(/src/static/img/background.png) center center no-repeat;
-  background-size:cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #root {
