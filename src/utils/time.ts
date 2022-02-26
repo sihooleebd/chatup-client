@@ -19,7 +19,6 @@ export default class Time {
     } else {
       return String(Math.floor(diffInMs/1000/60/60) + 'hours ago');
     }
-    return '';
   }
 
 }
