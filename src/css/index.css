@@ -528,9 +528,18 @@ div.edit-profile > form > input[type=text] {
 }
 
 .within-post-link:hover {
-  text-decoration: dotted;
   color: #09ADAC;
 }
+
+.within-post-link-chat {
+  transition-duration: 200ms;
+}
+
+.within-post-link-chat:hover {
+  color: #FFF;
+}
+
+
 div.page-not-found  {
   background: #FFFFFF;
   height: 100%;

@@ -47,6 +47,22 @@ export default class Chat {
   }
 
 
+  attachAnchorTag(html:string) : string {
+    const urlRegex= /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/g;
+    html = html.replace(urlRegex, `<a href = '$&' class='within-post-link-chat' target='_blank' title='Click me to go to this link! Click if only trusted!'>$&</a>`);  
+    console.log("html", html);
+    return html;
+  }
+
+  changePostContentToHtml(content:string | null | undefined) : string {
+    if(!content) return '';
+
+    let htmlContent = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    htmlContent = this.attachAnchorTag(htmlContent);
+
+    return htmlContent;
+  }
+
   updateView() {
     console.log('updateview');
     document.querySelector('.chat.page .title span').innerHTML = this.counterpart.nickname;
@@ -67,7 +83,7 @@ export default class Chat {
         const messageElem = HTMLDom.htmlToElement(
           messageTemplate
           .replace('{{senderNickname}}', senderNickname)
-          .replace('{{content}}', (message.content as string).replace(/(?:\r\n|\r|\n)/g, '<br>'))
+          .replace('{{content}}', this.changePostContentToHtml(message.content))
           .replace('{{sentAt}}', Time.getReadableTime(message.sentAt))) as HTMLElement;
         if(message.senderId === this.me.id) {
           messageElem.classList.add('me');
