@@ -13,6 +13,9 @@ body {
 }
 
 
+input[type='text'], input[type='password'] {
+  cursor: text;
+}
 
 div, a, b{
 
@@ -30,6 +33,10 @@ div::-webkit-scrollbar {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.page-not-found {
+  cursor: not-allowed;
 }
 
 #root {
