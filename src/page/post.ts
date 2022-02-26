@@ -23,6 +23,22 @@ export default class Post {
     console.log('postId = ', this.postId);
   }
 
+  attachAnchorTag(html:string) : string {
+    const urlRegex= /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/g;
+    html = html.replace(urlRegex, `<a href = '$&' class='within-post-link' title='Click me to go to this link! Click if only trusted!'>$&</a>`);  
+    console.log("html", html);
+    return html;
+  }
+
+  changePostContentToHtml(content:string | null | undefined) : string {
+    if(!content) return '';
+
+    let htmlContent = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    htmlContent = this.attachAnchorTag(htmlContent);
+
+    return htmlContent;
+  }
+
   async getPost(): Promise<string> {
     try {
       console.log(this.postId);
@@ -31,14 +47,20 @@ export default class Post {
       });
       const data = result.data as MyResponseT;
       const post = data.object;
+     
       console.log(post);
-      const tmp =  postTemplate.replace('{{title}}', post.title)
-        .replace('{{content}}', (post.content as string).replace(/(?:\r\n|\r|\n)/g, '<br>'))
+
+      let postHtml = '';
+
+      postHtml =  postTemplate.replace('{{title}}', post.title)
+        .replace('{{content}}', this.changePostContentToHtml(post.content))
         .replace('{{writerId}}', post.writerId)
         .replace('{{writerNickname}}', post.writerNickname)
         .replace('{{writtenAt}}', Time.getReadableTime(post.writtenAt))
         .replace('{{profileImg}}', Url.getProfileUrl(post.profileImg));
-      let tmp2 = template.replace('{{PostView}}', tmp);
+
+      
+      postHtml = template.replace('{{PostView}}', postHtml);
 
       var jsonStr = window.localStorage.getItem('profile');
       var parsed = JSON.parse(jsonStr);
@@ -46,13 +68,13 @@ export default class Post {
       console.log("COMPARING IF THIS IS MY POST");
       if(myId==post.writerId) {
         console.log("YES");
-        tmp2 = tmp2.replace('{{deleteIcon}}', deleteCode);
-        console.log(tmp2);
+        postHtml = postHtml.replace('{{deleteIcon}}', deleteCode);
+        console.log(postHtml);
       } else {
         console.log("NO");
-        tmp2 = tmp2.replace('{{deleteIcon}}', '');
+        postHtml = postHtml.replace('{{deleteIcon}}', '');
       }
-      return tmp2;
+      return postHtml;
     } catch (e) {
       if(e instanceof SyntaxError) {
         return "server error";
@@ -129,7 +151,7 @@ export default class Post {
       return commentsTemplate.replace('{{comments}}',
         commentList.reduce((a,c) => (
           a + commentLiTemplate
-            .replace('{{content}}', (c.content as string).replace(/(?:\r\n|\r|\n)/g, '<br>'))
+            .replace('{{content}}', this.changePostContentToHtml(c.content))
             .replace('{{writerId}}', c.writerId)
             .replace('{{writerNickname}}', c.writerNickname)
             .replace('{{writtenAt}}', Time.getReadableTime(c.writtenAt))
@@ -214,7 +236,7 @@ export default class Post {
     this.container.innerHTML = template;
     const postHtml = await this.getPost();
     this.container.innerHTML = postHtml;
-    
+
     console.log(this.container.innerHTML);
     this.getComments().then((s) => {
       const ulElement = HTMLDom.htmlToElement(s);

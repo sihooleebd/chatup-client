@@ -523,8 +523,14 @@ div.edit-profile > form > input[type=text] {
   text-align: center;
   background:none;
 }
+.within-post-link {
+  transition-duration: 200ms;
+}
 
-
+.within-post-link:hover {
+  text-decoration: dotted;
+  color: #09ADAC;
+}
 div.page-not-found  {
   background: #FFFFFF;
   height: 100%;
