@@ -25,7 +25,7 @@ export default class Post {
 
   attachAnchorTag(html:string) : string {
     const urlRegex= /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/g;
-    html = html.replace(urlRegex, `<a href = '$&' class='within-post-link' title='Click me to go to this link! Click if only trusted!'>$&</a>`);  
+    html = html.replace(urlRegex, `<a href = '$&' class='within-post-link' target='_blank' title='Click me to go to this link! Click if only trusted!'>$&</a>`);  
     console.log("html", html);
     return html;
   }
