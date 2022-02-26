@@ -754,7 +754,7 @@ input:-webkit-autofill:active{
 }
 .developed-by.aTag {
   margin-top:0;
-  transition-duration: 500ms;
+  transition-duration: 200ms;
 }
 
 .developed-by.aTag:hover {
@@ -767,7 +767,7 @@ input:-webkit-autofill:active{
 }
 
 .transition{
-  transition-duration: 500ms;
+  transition-duration: 200ms;
 
 }
 
@@ -1137,7 +1137,7 @@ li.hoverable {
 }
 
 #sign-out:hover {
-  background-color: #F00;
+  background-color: #09ADAC;
   color:#FFF;
 
 }
