@@ -1,11 +1,21 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import Profile from "../utils/profile";
 import Url from "../utils/url";
 import template from "./edit-profile.tpl";
-import Menu from "./menu";
 import constant from '../config/constant';
 import { MyResponseT } from "../types";
 
+
+type UserInfoT = {
+  email: string,
+  pw: string
+}
+ 
+type ObjectT = {
+  profileImg: string,
+  nickname: string
+}
+ 
 
 export default class EditProfile {
   template: string = template;
@@ -40,7 +50,7 @@ export default class EditProfile {
     //여기까지 오면 자료 있음
 
     axios
-      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
+      .post<UserInfoT, AxiosResponse<MyResponseT>>(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
         withCredentials: true,
       })
       .then((result) => {
@@ -63,7 +73,7 @@ export default class EditProfile {
 
   onImageChange = (e) => {
     console.log(e);
-    const selectedFile = document.getElementById('photo').files[0];
+    const selectedFile = (document.getElementById('photo') as HTMLInputElement).files[0];
     console.log(selectedFile);
     if(!selectedFile) {
       return;
@@ -75,15 +85,15 @@ export default class EditProfile {
 
     const form = new FormData();
     form.append("photo", selectedFile);
-    axios.post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/me/profileImage`, form, {
+    axios.post<FormData, AxiosResponse<MyResponseT>>(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/me/profileImage`, form, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     })
     .then((response) => {
       // 응답 처리
-      console.log(response.data);
-      document.querySelector('div.edit-profile > form > div.photo-wrapper > div.profile-viewer').style.backgroundImage = `url('/storage/temp/${response.data.object.profileImgFileName}')`;
+
+      (document.querySelector('div.edit-profile > form > div.photo-wrapper > div.profile-viewer') as HTMLElement).style.backgroundImage = `url('/storage/temp/${response.data.object.profileImgFileName}')`;
       console.log(`url(/storage/temp/${response.data.object.profileImgFileName})`);
       this.profileImageFileName = response.data.object.profileImgFileName;
       console.log(this.profileImageFileName);
@@ -105,7 +115,7 @@ export default class EditProfile {
       return;
     }
     console.log('object',object);
-    axios.put(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/me`, object , {
+    axios.put<ObjectT, AxiosResponse<MyResponseT>>(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/users/me`, object , {
       withCredentials: true,
     }).then((response) => {
       console.log('response', response);
@@ -128,8 +138,8 @@ export default class EditProfile {
   render = () => {
     this.container.innerHTML = this.template; 
     Profile.retrieveProfile(true, undefined).then((myProfile) => {
-      document.querySelector('#nickname-input').value = myProfile.nickname;
-      document.querySelector('.profile-viewer').style.backgroundImage = `url(${Url.getProfileUrl(myProfile.profileImg)})`;
+      (document.querySelector('#nickname-input') as HTMLInputElement).value = myProfile.nickname;
+      (document.querySelector('.profile-viewer') as HTMLElement).style.backgroundImage = `url(${Url.getProfileUrl(myProfile.profileImg)})`;
       console.log(Url.getProfileUrl(myProfile.profileImg));
       const fileInput = document.querySelector('#photo');
       fileInput.addEventListener('change', this.onImageChange);

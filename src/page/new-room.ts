@@ -11,6 +11,10 @@ type UserInfoT = {
   pw: string
 }
 
+type RoomT = {
+  roomName: string
+}
+
 export default class NewRoom {
   template: string = template;
   container: HTMLElement;
@@ -84,7 +88,7 @@ export default class NewRoom {
       return;
     }
     console.log('object',object);
-    axios.post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/rooms`, object , {
+    axios.post<RoomT,AxiosResponse<MyResponseT>>(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/rooms`, object , {
       withCredentials: true,
     }).then((response) => {
       console.log('response', response);

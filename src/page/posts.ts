@@ -3,6 +3,7 @@ import Time from "../utils/time";
 import template, { postsTemplate, postTemplate, welcomeTemplate } from './posts.tpl'
 import Menu from "./menu";
 import constant from '../config/constant';
+import { MyResponseT } from "../types";
 
 export default class Posts {
   template: string = template;
@@ -24,7 +25,8 @@ export default class Posts {
 
       // }
 
-      const postList = result.data.objects;
+      const data = result.data as MyResponseT;
+      const postList = data.objects;
       console.log(postList.length);
       if(postList.length === 0) {
         console.log('aaa');

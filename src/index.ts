@@ -13,7 +13,6 @@ import EditProfile from "./page/edit-profile";
 import Profile from "./utils/profile";
 import Chat from "./page/chat";
 import NewRoom from "./page/new-room";
-import { chatsTemplate } from "./page/chats.tpl";
 import Chats from "./page/chats";
 
 function route() {

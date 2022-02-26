@@ -3,6 +3,7 @@ import Time from "../utils/time";
 import template, { roomTemplate, roomsTemplate } from './rooms.tpl'
 import Menu from "./menu";
 import constant from '../config/constant';
+import { MyResponseT } from "../types";
 
 
 export default class Rooms {
@@ -18,7 +19,8 @@ export default class Rooms {
       const result = await axios.get(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/rooms`, {
         withCredentials: true,
       });
-      const roomList = result.data.objects;
+      const data = result.data as MyResponseT;
+      const roomList = data.objects;
 
       return roomsTemplate.replace('{{rooms}}',  roomList.reduce((a,c) => (
         a + roomTemplate
