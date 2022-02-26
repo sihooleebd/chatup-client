@@ -3,6 +3,8 @@ import template, { chatsTemplate, chatTemplate } from './chats.tpl'
 import Menu from "./menu";
 import constant from '../config/constant';
 import Profile from "../utils/profile";
+import { MyResponseT } from "../types";
+
 
 export default class Chats {
   template: string = template;
@@ -20,7 +22,8 @@ export default class Chats {
       const result = await axios.get(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/chats/${this.userId}`, {
         withCredentials: true,
       });
-      const chatsList = result.data.objects;
+      const data = result.data as MyResponseT;
+      const chatsList = data.objects;
       console.log('chatsList', chatsList);
       console.log(chatsList.length);
       let finalStr = '';
