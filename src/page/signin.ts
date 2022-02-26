@@ -1,8 +1,13 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import template from "./signin.tpl";
 import constant from '../config/constant';
 import Profile from "../utils/profile";
+import { MyResponseT } from "../types";
 
+type UserInfoT = {
+  email: string,
+  pw: string
+}
 
 export default class SignIn {
   template: string = template;
@@ -36,7 +41,7 @@ export default class SignIn {
     //여기까지 오면 자료 있음
 
     axios
-      .post(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
+      .post<UserInfoT, AxiosResponse<MyResponseT>>(`${constant.PROTOCOL}://${constant.HOST}:${constant.SERVER_PORT}/api/signIn`, userInfo, {
         withCredentials: true,
       })
       .then((result) => {
