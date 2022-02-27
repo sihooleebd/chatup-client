@@ -27,6 +27,8 @@ export default class Chats {
       console.log('chatsList', chatsList);
       console.log(chatsList.length);
       let finalStr = '';
+
+
       for(let i = 0; i < chatsList.length; ++i) {
         let tmp: string;
         if(this.userId == chatsList[i].userFirstId) {
@@ -43,8 +45,11 @@ export default class Chats {
         finalStr = finalStr + tmp;
       }
 
-
+      if(finalStr.length === 0) {
+        return chatsTemplate.replace("{{chatsList}}", '<b>No chats here, im lonely :(. Add chats by clicking on your friends profile posts in their post!');
+      }
       return chatsTemplate.replace("{{chatsList}}", finalStr);
+
     } catch (e) {
       if(e instanceof SyntaxError) {
         return "server error";
