@@ -42,7 +42,7 @@ const template = `
     <div class='post-wrapper'>{{PostView}}</div>
     <div class='comments-wrapper'>
       <form id='new-comment-form' autocomplete="off">
-        <input type='text' placeholder='enter your awsome comment here..'  id='new-comment'>
+        <input type='text' placeholder='enter your awe\some comment here..'  id='new-comment'>
       </form>
     </div>
   </div>
