@@ -18,7 +18,13 @@ input[type='text'], input[type='password'] {
 }
 
 
+.lonely {
+  font-size: 30px;
+  color: #09ADAC;
+  padding-left: 30px;
+  padding-top: 15px;
 
+}
 
 
 
