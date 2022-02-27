@@ -46,7 +46,7 @@ export default class Chats {
       }
 
       if(finalStr.length === 0) {
-        return chatsTemplate.replace("{{chatsList}}", `<div class='lonely'>No chats here, im lonely :(. Add chats by clicking on your friends profile posts in their post! </div>`);
+        return chatsTemplate.replace("{{chatsList}}", `<div class='lonely'>No chats here, im lonely :(. Add chats by clicking on your friends profile pictures in their post! </div>`);
       }
       return chatsTemplate.replace("{{chatsList}}", finalStr);
 
