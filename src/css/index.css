@@ -29,8 +29,6 @@ input[type='text'], input[type='password'] {
 
 
 
-
-
 div, a, b{
 
   font-family: "나눔고딕" , "Nanum Gothic" ,"돋움", dotum, sans-serif;
@@ -490,6 +488,7 @@ div.edit-profile > form > div.guide > b {
 div.edit-profile > form > .photo-wrapper > input[type='file'] {
   display: none;
 }
+
 
 div.edit-profile > form > .photo-wrapper {
   position: relative;
@@ -1154,7 +1153,7 @@ li.hoverable:hover {
 }
 
 li.hoverable {
-  transition-duration: 500ms;
+  transition-duration: 200ms;
 }
 
 #sign-out:hover {
