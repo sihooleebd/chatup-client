@@ -26,7 +26,7 @@ const template = `
         
       </ul>
       <div class='developed-by divTag'>Developed by BenNy</div>
-      <a class='developed-by aTag' href='https://www.benny.mcjunon.com'>Learn more</a>
+      <a class='developed-by aTag' href='https://www.benjaminlee.kr'>Learn more</a>
       <input type='button' class='transition' id='menu-close' class='close' value='close'>
     </div>
   </div>
