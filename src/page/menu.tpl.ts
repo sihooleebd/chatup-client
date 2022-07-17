@@ -3,7 +3,7 @@ const template = `
     <div class='menu'>
       <div class='profile-wrapper'>
         <div class='profile-img'><img src='{{profileImg}}' ></div>
-        <div class='nickname-wrapper'>Welcome, <span class='nickname'>-</span></div>
+        <div class='nickname-wrapper'><span class='nickname'>-</span></div>
         <div class='email'>-</div>
         <div><a class='transition' href='#/editProfile'>Dressing Room</a></div>
       </div>
