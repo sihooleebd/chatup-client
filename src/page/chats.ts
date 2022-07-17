@@ -24,6 +24,9 @@ export default class Chats {
       });
       const data = result.data as MyResponseT;
       const chatsList = data.objects;
+      if(!chatsList) {
+        return '';
+      }
       console.log('chatsList', chatsList);
       console.log(chatsList.length);
       let finalStr = '';
@@ -71,7 +74,7 @@ export default class Chats {
   onChatClick(e: Event) {
     const elem = e.target as HTMLElement;
     console.log('elem', elem);
-    const parent = elem.parentElement.parentElement;
+    const parent = elem.parentElement!.parentElement!;
     console.log('parent', parent);
     const userIdStr = parent.dataset.counterpartId;
     console.log('dataset', parent.dataset);
@@ -100,7 +103,7 @@ export default class Chats {
       this.container.innerHTML = this.template.replace("{{chatsList}}", s);
       Menu.attach();
       console.log(document.querySelector('ul.posts'));
-      document.querySelector('ul.chats').addEventListener('click', this.onChatClick);
+      document.querySelector('ul.chats')?.addEventListener('click', this.onChatClick);
     });
   };
 }
