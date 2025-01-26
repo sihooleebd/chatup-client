@@ -20,6 +20,8 @@ function route() {
 
 
 
+  
+
   if (path==="" || path==="#/signIn") {
     const signin = new SignIn("#root");
     signin.render();
