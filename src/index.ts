@@ -19,9 +19,6 @@ function route() {
   const path = location.hash;
 
 
-
-  
-
   if (path==="" || path==="#/signIn") {
     const signin = new SignIn("#root");
     signin.render();
