@@ -2,7 +2,7 @@ const template = `
   <div class='sign-in page'>
 
     <form autocomplete="off">
-      <div class='guide'><b>Welcome!</b><br>Please enter your email and password : </div>
+      <div class='guide'><b>Hi!</b><br>Please enter your email and password : </div>
       <ul>
         <li>
           <input type='text' placeholder='email' id='email'>
