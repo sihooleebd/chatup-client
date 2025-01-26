@@ -13,7 +13,7 @@ const template = `
       </ul>
       <input type='submit' value="log in">
       <br>
-      <input type='button' id='btn-goto-signup' value="don't have an account? sign up">
+      <input type='button' id='btn-goto-signup' value="don't have an account? sign up!">
     </form>
   </div>
 `;
