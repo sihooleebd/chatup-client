@@ -18,6 +18,7 @@ import Chats from "./page/chats";
 function route() {
   const path = location.hash;
 
+  
 
   if (path==="" || path==="#/signIn") {
     const signin = new SignIn("#root");
