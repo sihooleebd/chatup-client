@@ -40,7 +40,7 @@ export default class Posts {
         .replace('{{content}}', (c.content as string).replace(/(?:\r\n|\r|\n)/g, '<br>'))
         .replace('{{writerNickname}}', c.writerNickname)
         .replace('{{writtenAt}}', Time.getReadableTime(c.writtenAt))
-        .replace('{{profileImg}}', (c.profileImg === null) ? '/dist-static/favicon.png' : '/storage/profile/' + c.profileImg)
+        .replace('{{profileImg}}', (c.profileImg === null) ? '/myStatic/favicon.png' : '/file/profile/' + c.profileImg)
       ), ''));
       
     } catch (e) {
@@ -52,6 +52,7 @@ export default class Posts {
         });
         return '';
        } else {
+        console.log(e);
         return "axios error";
        }
     }

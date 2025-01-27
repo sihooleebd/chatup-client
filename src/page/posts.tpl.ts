@@ -14,7 +14,7 @@ const postTemplate = `
 const welcomeTemplate = `
   <li class='hoverable'>
     <div class='post-metadata-wrapper'> 
-      <div class='profile'><img src='/dist-static/favicon.png' ></div>
+      <div class='profile'><img src='/myStatic/favicon.png' ></div>
       <div class='writer'>Chatup</div>
       <div class='time'>now</div>
     </div>
@@ -31,7 +31,7 @@ const postsTemplate  = `
 const template = `
   <div class='posts page with-title'>
     <div class='title'>
-      <img src='/dist-static/logo.png'>
+      <img src='/myStatic/logo.png'>
       <div class='nav-button-wrapper right'>
         <input type='button' class='nav-button' id='write-new-post' value='write!'>
       </div>

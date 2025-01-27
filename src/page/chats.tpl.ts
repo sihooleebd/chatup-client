@@ -14,7 +14,7 @@ const chatsTemplate  = `
 const template = `
   <div class='chats page with-title'>
     <div class='title'>
-      <img src='/dist-static/logo.png'>
+      <img src='/myStatic/logo.png'>
       <div class='nav-button-wrapper right'>
       </div>
       <div class='nav-button-wrapper left'>

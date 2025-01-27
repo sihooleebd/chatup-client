@@ -93,8 +93,8 @@ export default class EditProfile {
     .then((response) => {
       // 응답 처리
 
-      (document.querySelector('div.edit-profile > form > div.photo-wrapper > div.profile-viewer') as HTMLElement).style.backgroundImage = `url('/storage/temp/${response.data.object.profileImgFileName}')`;
-      console.log(`url(/storage/temp/${response.data.object.profileImgFileName})`);
+      (document.querySelector('div.edit-profile > form > div.photo-wrapper > div.profile-viewer') as HTMLElement).style.backgroundImage = `url('/file/temp/${response.data.object.profileImgFileName}')`;
+      console.log(`url(/file/temp/${response.data.object.profileImgFileName})`);
       this.profileImageFileName = response.data.object.profileImgFileName;
       console.log(this.profileImageFileName);
     })

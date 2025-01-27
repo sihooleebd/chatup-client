@@ -15,7 +15,7 @@ const roomsTemplate = `
 const template = `
   <div class='rooms page with-title'>
     <div class='title'>
-      <img src='/dist-static/logo.png'>
+      <img src='/myStatic/logo.png'>
       <div class='nav-button-wrapper right'>
         <input type='button' class='nav-button' id='create-new-room' value='add a room!'>
       </div>

@@ -20,7 +20,8 @@ export default class SignIn {
 
 
   onSubmit = (e) => {
-    console.log("submit");
+    console.log('abc');
+    console.log("submit", constant);
     e.preventDefault();
 
     const email = (<HTMLInputElement>document.querySelector("#email")).value;

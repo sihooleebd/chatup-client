@@ -38,12 +38,12 @@ export default class Chats {
           tmp = chatTemplate
           .replace('{{counterId}}', chatsList[i].userSecondId)
           .replace('{{counterNickname}}', chatsList[i].userSecondNickname)
-          .replace('{{profileImg}}', (chatsList[i].userSecondProfileImage === null) ? '/dist-static/favicon.png' : '/storage/profile/' + chatsList[i].userSecondProfileImage);
+          .replace('{{profileImg}}', (chatsList[i].userSecondProfileImage === null) ? '/myStatic/favicon.png' : '/file/profile/' + chatsList[i].userSecondProfileImage);
         } else {
           tmp = chatTemplate
           .replace('{{counterId}}', chatsList[i].userFirstId)
           .replace('{{counterNickname}}', chatsList[i].userFirstNickname)
-          .replace('{{profileImg}}', (chatsList[i].userFirstProfileImg === null) ? '/dist-static/favicon.png' : '/storage/profile/' + chatsList[i].userFirstProfileImg);
+          .replace('{{profileImg}}', (chatsList[i].userFirstProfileImg === null) ? '/myStatic/favicon.png' : '/file/profile/' + chatsList[i].userFirstProfileImg);
         }
         finalStr = finalStr + tmp;
       }

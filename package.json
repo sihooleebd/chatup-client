@@ -5,9 +5,8 @@
   "default": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "local-start": "npx parcel index.html",
+    "local-start": "parcel index.html ",
     "build": "parcel build index.html"
-    
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +19,11 @@
   "devDependencies": {
     "cssnano": "^5.0.13",
     "postcss": "^8.4.5",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "parcel-reporter-static-files-copy": "^1.5.3"
+  },
+  "staticFiles": {
+    "staticPath": "myStatic",
+    "staticOutPath": "MyStatic"
   }
 }
