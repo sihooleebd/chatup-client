@@ -4,6 +4,7 @@ import template, { postsTemplate, postTemplate, welcomeTemplate } from './posts.
 import Menu from "./menu";
 import constant from '../config/constant';
 import { MyResponseT } from "../types";
+import Url from "../utils/url";
 
 export default class Posts {
   template: string = template;
@@ -40,7 +41,7 @@ export default class Posts {
         .replace('{{content}}', (c.content as string).replace(/(?:\r\n|\r|\n)/g, '<br>'))
         .replace('{{writerNickname}}', c.writerNickname)
         .replace('{{writtenAt}}', Time.getReadableTime(c.writtenAt))
-        .replace('{{profileImg}}', (c.profileImg === null) ? '/myStatic/favicon.png' : '/file/profile/' + c.profileImg)
+        .replace('{{profileImg}}', Url.getProfileUrl(c.profileImg))
       ), ''));
       
     } catch (e) {

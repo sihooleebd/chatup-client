@@ -40,7 +40,7 @@ div::-webkit-scrollbar {
 
 .sign-in.page, .sign-up.page, .new-room.page, .new-post.page, .edit-profile.page {
 
-  background: url(/src/static/img/background.png) center center no-repeat;
+  background: url(/myStatic/background.png) center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -108,7 +108,7 @@ div.page > div.title > div.nav-button-wrapper.right {
 }
 
 input[type=button]#menu {
-  background: url(/src/static/img/menu-icon.png) center center no-repeat;
+  background: url(/myStatic/menu-icon.png) center center no-repeat;
   background-size: 40px 40px;
   font-size: 0;
   width: 40px;
@@ -255,7 +255,7 @@ div.sign-in > form > div.guide {
   margin: 0 auto 20px;
   width: 200px;
   padding-top: 150px;
-  background: url(/src/static/img/logo.png) center top no-repeat;
+  background: url(/myStatic/logo.png) center top no-repeat;
   background-size: contain;
   line-height: 24px;
 }
@@ -275,12 +275,12 @@ div.sign-in > form input[type=text], div.sign-in > form input[type=password] {
 }
 
 div.sign-in > form input[type=text] {
-  background: url(/src/static/img/email-icon.png) 10px center no-repeat;
+  background: url(/myStatic/email-icon.png) 10px center no-repeat;
   background-size: 24px 24px;
 }
 
 div.sign-in > form input[type=password] {
-  background: url(/src/static/img/password-icon.png) 10px center no-repeat;
+  background: url(/myStatic/password-icon.png) 10px center no-repeat;
   background-size: 24px 24px;
 }
 
@@ -327,7 +327,7 @@ div.sign-up > form > div.guide {
   margin: 0 auto 20px;
   width: 200px;
   padding-top: 150px;
-  background: url(/src/static/img/logo.png) center top no-repeat;
+  background: url(/myStatic/logo.png) center top no-repeat;
   background-size: contain;
   line-height: 24px;
 }
@@ -347,18 +347,18 @@ div.sign-up > form input[type=text], div.sign-up > form input[type=password] {
 }
 
 div.sign-up > form input[type=text]#email {
-  background: url(/src/static/img/email-icon.png) 10px center no-repeat;
+  background: url(/myStatic/email-icon.png) 10px center no-repeat;
   background-size: 24px 24px;
 }
 
 div.sign-up > form input[type=text]#nickname {
-  background: url(/src/static/img/nickname-icon.png) 10px center no-repeat;
+  background: url(/myStatic/nickname-icon.png) 10px center no-repeat;
   background-size: 24px 24px;
 }
 
 
 div.sign-up > form input[type=password] {
-  background: url(/src/static/img/password-icon.png) 10px center no-repeat;
+  background: url(/myStatic/password-icon.png) 10px center no-repeat;
   background-size: 24px 24px;
 }
 
@@ -403,7 +403,7 @@ div.new-post > form > div.guide {
   margin: 0 auto 20px;
   width: 200px;
   padding-top: 150px;
-  background: url(/src/static/img/logo.png) center top no-repeat;
+  background: url(/myStatic/logo.png) center top no-repeat;
   background-size: contain;
   line-height: 24px;
 }
@@ -476,7 +476,7 @@ div.edit-profile > form > div.guide {
   margin: 0 auto 20px;
   width: 200px;
   padding-top: 150px;
-  background: url(/src/static/img/logo.png) center top no-repeat;
+  background: url(/myStatic/logo.png) center top no-repeat;
   background-size: contain;
   line-height: 24px;
 }
@@ -520,7 +520,7 @@ div.edit-profile > form > .photo-wrapper > div.profile-viewer {
   border-radius : 50%;
   display:inline-block;
   background : #ddd;
-  background-image: url(/src/static/img/favicon.png);
+  background-image: url(/myStatic/favicon.png);
   background-size: cover;
   background-position: center center;
   border:0 none;
@@ -566,7 +566,7 @@ div.page-not-found  {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(/src/static/img/background.png) center center no-repeat;
+  background: url(/myStatic/background.png) center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -589,7 +589,7 @@ div.page-not-found > form > div.guide {
   width: 200px;
   padding-top: 200px;
   margin-top:30px;
-  background: url(/src/static/img/404.png) center top no-repeat;
+  background: url(/myStatic/404.png) center top no-repeat;
   background-size: contain;
   line-height: 24px;
 }
@@ -734,7 +734,7 @@ div.menu > input[type=button] {
   position: absolute;
   right: 0;
   top: 0;
-  background: url(/src/static/img/menu-cancel-icon.png) center center no-repeat;
+  background: url(/myStatic/menu-cancel-icon.png) center center no-repeat;
   background-size: 40px 40px;
   font-size: 0;
   opacity: 0.7;
@@ -804,7 +804,7 @@ div.menu > ul {
 
 #write-new-post, #create-new-room {
   font-size: 0;
-  background: url(/src/static/img/new-post-icon.png) center center no-repeat;
+  background: url(/myStatic/new-post-icon.png) center center no-repeat;
   background-size: 30px 30px;
   border: 0;
   height: 30px;
@@ -814,7 +814,7 @@ div.menu > ul {
 
 #delete-post {
   font-size: 0;
-  background: url(/src/static/img/delete-icon.png) center center no-repeat;
+  background: url(/myStatic/delete-icon.png) center center no-repeat;
   background-size: 30px 30px;
   border: 0;
   height: 30px;
@@ -944,7 +944,7 @@ div.rooms > ul > li > div.room-metadata-wrapper div {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: url(/src/static/img/dummy-profile-pic.png);
+  background: url(/myStatic/dummy-profile-pic.png);
   background-size: contain;
 
 }

@@ -4,6 +4,7 @@ import Menu from "./menu";
 import constant from '../config/constant';
 import Profile from "../utils/profile";
 import { MyResponseT } from "../types";
+import Url from "../utils/url";
 
 
 export default class Chats {
@@ -38,12 +39,12 @@ export default class Chats {
           tmp = chatTemplate
           .replace('{{counterId}}', chatsList[i].userSecondId)
           .replace('{{counterNickname}}', chatsList[i].userSecondNickname)
-          .replace('{{profileImg}}', (chatsList[i].userSecondProfileImage === null) ? '/myStatic/favicon.png' : '/file/profile/' + chatsList[i].userSecondProfileImage);
+          .replace('{{profileImg}}', Url.getProfileUrl(chatsList[i].userSecondProfileImage));
         } else {
           tmp = chatTemplate
           .replace('{{counterId}}', chatsList[i].userFirstId)
           .replace('{{counterNickname}}', chatsList[i].userFirstNickname)
-          .replace('{{profileImg}}', (chatsList[i].userFirstProfileImg === null) ? '/myStatic/favicon.png' : '/file/profile/' + chatsList[i].userFirstProfileImg);
+          .replace('{{profileImg}}', Url.getProfileUrl(chatsList[i].userFirstProfileImg));
         }
         finalStr = finalStr + tmp;
       }

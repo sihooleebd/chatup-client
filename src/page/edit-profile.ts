@@ -78,7 +78,7 @@ export default class EditProfile {
     if(!selectedFile) {
       return;
     }
-    if(selectedFile.type !== 'image/png' && selectedFile.type !== 'image/jpg') {
+    if(selectedFile.type !== 'image/png' && selectedFile.type !== 'image/jpg' && selectedFile.type !== 'image/jpeg') {
       alert('you are only allowed too submit file types of .jpg or .png. Please check your file format.');
       return;
     }
@@ -92,11 +92,13 @@ export default class EditProfile {
     })
     .then((response) => {
       // 응답 처리
-
-      (document.querySelector('div.edit-profile > form > div.photo-wrapper > div.profile-viewer') as HTMLElement).style.backgroundImage = `url('/file/temp/${response.data.object.profileImgFileName}')`;
-      console.log(`url(/file/temp/${response.data.object.profileImgFileName})`);
+      console.log("image response data", response.data.object);
+      const tempImageUrl = Url.getProfileUrl(response.data.object.profileImgFileName, true);
+      (document.querySelector('div.edit-profile > form > div.photo-wrapper > div.profile-viewer') as HTMLElement).style.backgroundImage = `url(${tempImageUrl})`;
       this.profileImageFileName = response.data.object.profileImgFileName;
-      console.log(this.profileImageFileName);
+
+
+        console.log(this.profileImageFileName);
     })
     .catch((error) => {
       // 예외 처리
