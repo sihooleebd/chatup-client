@@ -18,7 +18,7 @@ const template = `
           <a href='#/chatList' title='All Chats' class='transition' id='all-chats'>All Chats</a>
         </li>
         <li>
-        <a href='https://docs.google.com/document/d/18jbyJCPJMYO5d6IH-yhwcKGtQCYqQLhtJbaYW8e5R1w/edit?usp=sharing' target='_blank' title='Change Logs' class='transition' id='change-logs'>Chage Logs</a>
+        <a href='https://docs.google.com/document/d/18jbyJCPJMYO5d6IH-yhwcKGtQCYqQLhtJbaYW8e5R1w/edit?usp=sharing' target='_blank' title='Change Logs' class='transition' id='change-logs'>Change Logs</a>
         </li>
         <li>
           <a href='#/signIn' class='transition' title='Sign out' id='sign-out'>Sign Out</a>
